@@ -5,3 +5,5 @@ PANCAKE is an algorithm-driven application focused on optimal route planning for
   
 In this project, each node in the map represents a location such as a shop or supply station where various items can be acquired. A single node may offer multiple items, each with associated value and cost. This reflects real-world scenarios where one stop may fulfill several needs. The challenge lies in intelligently selecting which nodes to visit—and in what order—to optimize the path and fulfill all demands.  
 
+To solve this, PANCAKE implements a variety of algorithmic strategies :  
+    Basic algorithms
