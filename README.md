@@ -1,6 +1,6 @@
 # PANCAKE : Pathfinding for Acquisition of Necessary Commodities using Algorithmic Knowledge Efficiently
 
-![image](https://img.freepik.com/premium-photo/stack-pancakes-with-syrup-syrup-plate_662214-126371.jpg)
+![image](https://food.fnr.sndimg.com/content/dam/images/food/fullset/2019/7/11/0/FNK_the-best-pancakes_H_s4x3.jpg.rend.hgtvcom.1280.720.suffix/1562853903667.webp)
 
 PANCAKE is an algorithm-driven application focused on optimal route planning for resource collection tasks. The system receives a demand list, which includes a set of required items, goods, or objectives that must be acquired during a patrol or outing. The goal is to identify the most efficient path through a graph-based map to collect all required items while minimizing cost or distance.  
 
