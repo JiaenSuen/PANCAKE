@@ -1,11 +1,11 @@
-# <font color=#FF0000> DSLib 
+# <font color=#FF0000> **DSLib**
 <font color=#FFFF00>
 
-### SupplyItem
+### **SupplyItem**
 	{ 物品名稱 , 價格 }
 <br><br>
 
-## Node
+## **Node**
 	{
 		Node Name,
 		Location_X,
@@ -16,7 +16,7 @@
 	}
 <br><br>
 
-## Aquire_List
+## **Aquire_List**
 	{
 		Dictionary<string, List<(Node node, int price)>> map ,
 
@@ -31,11 +31,11 @@
 	  
 	
 
-# <font color=#00FF> Map
+# <font color=#00FF> **Map**
 
 <font color=#89CFF0 >
 
-### Map 
+### **Map** 
 	{
 		[ Aquire_List ] ObjectsAquireList  // 物品名稱 → 節點 List 字典查找
 		[ List<Node> ]  Nodes  // 地圖上所有點
@@ -44,7 +44,7 @@
 <br>
 
 
-### MapLoader
+### **MapLoader**
 	@ Map Read_CSV_From_Map(string filePath)  // 讀取 CSV 檔案
 
 <br>
@@ -52,17 +52,17 @@
 <br>
 
 
-# <font color=#FF00FF> Solution
+# <font color=#FF00FF> **Solution**
 <font color=#FFC0CB >
 
-### Aquire_Node
+### **Aquire_Node**
 	{
 		[    Node    ]  Node  	// 取貨的節點
 		[ SupplyItem ]  Item 	// 在該節點取得的物品（含價格）
 	}
 <br>
 
-## Recommend_Aquire_Commodities_Path
+## **Recommend_Aquire_Commodities_Path**
 	{
 		[ List<Aquire_Node> ]  Path 
 		[ double ] 	Cost // 累計的總成本（移動距離*單位距離花費價格 + 購買價格）
