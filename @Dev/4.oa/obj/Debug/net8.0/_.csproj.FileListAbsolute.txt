@@ -1,0 +1,15 @@
+e:\Project\PANCAKE\@Dev\4.oa\bin\Debug\net8.0\_.exe
+e:\Project\PANCAKE\@Dev\4.oa\bin\Debug\net8.0\_.deps.json
+e:\Project\PANCAKE\@Dev\4.oa\bin\Debug\net8.0\_.runtimeconfig.json
+e:\Project\PANCAKE\@Dev\4.oa\bin\Debug\net8.0\_.dll
+e:\Project\PANCAKE\@Dev\4.oa\bin\Debug\net8.0\_.pdb
+e:\Project\PANCAKE\@Dev\4.oa\obj\Debug\net8.0\_.GeneratedMSBuildEditorConfig.editorconfig
+e:\Project\PANCAKE\@Dev\4.oa\obj\Debug\net8.0\_.AssemblyInfoInputs.cache
+e:\Project\PANCAKE\@Dev\4.oa\obj\Debug\net8.0\_.AssemblyInfo.cs
+e:\Project\PANCAKE\@Dev\4.oa\obj\Debug\net8.0\_.csproj.CoreCompileInputs.cache
+e:\Project\PANCAKE\@Dev\4.oa\obj\Debug\net8.0\_.sourcelink.json
+e:\Project\PANCAKE\@Dev\4.oa\obj\Debug\net8.0\_.dll
+e:\Project\PANCAKE\@Dev\4.oa\obj\Debug\net8.0\refint\_.dll
+e:\Project\PANCAKE\@Dev\4.oa\obj\Debug\net8.0\_.pdb
+e:\Project\PANCAKE\@Dev\4.oa\obj\Debug\net8.0\_.genruntimeconfig.cache
+e:\Project\PANCAKE\@Dev\4.oa\obj\Debug\net8.0\ref\_.dll

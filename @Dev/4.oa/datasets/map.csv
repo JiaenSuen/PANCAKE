@@ -1,0 +1,17 @@
+Node_Name,Location_X,Location_Y,Objects
+Shop_A,10,20,Water:15;Bread:10;Battery:25
+StationB,15,25,Battery:22;FirstAid:30
+WarehouseC,8,18,Fuel:40;Bread:12
+ShopD,12,22,Water:17;Egg:5
+DepotE,14,24,Fuel:38;FirstAid:28;Egg:6
+7-11,3,4,Milktea:20;Burger:50
+Fourier,-20,-41,Egg:3;Bread:10;Water:1;ChessBurger:35
+Laplace,-3,8,ChessBurger:45;BeefBurger:80
+LeCun,25,25,Camera:150;Battery:10
+Hinton,16,10,Fuel:32;Perceptron:50
+Newton,-20,-10,Bread:17;Egg:6;BeefBurger:75
+Joker,28,34,Milktea:25;Burger:20
+Curie,-8,-36,Bread:6;Camera:106
+Turing,31,-36,ChessBurger:40
+Dijkstra,-27,-28,Water:20;Bread:7;Fuel:93
+Boole,45,31,Egg:3;Bread:14

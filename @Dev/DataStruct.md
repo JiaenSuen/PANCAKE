@@ -21,9 +21,11 @@
 		Dictionary<string, List<(Node node, int price)>> map ,
 
 		/* Aquire_List["Water"] → List<(Node, Price)> 索引器*/
+		Return tuple( Node , Price)
 
 		IEnumerable<string> AllObjects => map.Keys; 
 		// 可以得知地圖有哪些可取物
+
 	}
 <br>
 <br>
