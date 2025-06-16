@@ -172,7 +172,7 @@ namespace Tabu_Search
           int maxIterations = 100, int tabuListSize = 10, int neighborCount = 30)
         {
 
-            var currentSolution = initialSolution ?? MH_Utils.Generate_Random_RAC_Path(map, userDemand);
+            var currentSolution = initialSolution ?? MH_init_Utils.Generate_Random_RAC_Path(map, userDemand);
             var bestSolution = currentSolution;
             double bestCost = currentSolution.Cost;
 

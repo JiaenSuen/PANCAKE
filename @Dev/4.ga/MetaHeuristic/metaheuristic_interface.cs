@@ -8,11 +8,20 @@ using Basic_Algorithms_PANCAKE;
 namespace Metaheuristic_Interface
 {
 
-    class MH_Utils
+    class MH_init_Utils
     {
-        static public Recommend_Aquire_Commodities_Path Generate_Random_RAC_Path(Map map, List<string> Require_List)
+        static public Random rand = new Random();
+
+
+        static public void rand_seed(int seed)
         {
-            var rand = new Random();
+            rand = new Random(seed);
+        }
+
+        static public Recommend_Aquire_Commodities_Path Generate_Random_RAC_Path(Map map, List<string> Require_List_input)
+        {
+
+            List<string> Require_List = new List<string>(Require_List_input);
 
 
             var thePath = new Recommend_Aquire_Commodities_Path();
@@ -33,15 +42,33 @@ namespace Metaheuristic_Interface
             return thePath;
 
         }
+
+
+
+
+
+
+
+        static public List<Recommend_Aquire_Commodities_Path> Generate_RACP_Population(Map map, List<string> Require_List_input,
+         int Num_of_Population = 10, List<Recommend_Aquire_Commodities_Path>? extra_init_Pop = null)
+        {
+            List<Recommend_Aquire_Commodities_Path> Population = new List<Recommend_Aquire_Commodities_Path>();
+            for (int i = 0; i < Num_of_Population; i++)
+                Population.Add(Generate_Random_RAC_Path(map,Require_List_input));
+
+            if (extra_init_Pop != null)
+                Population.AddRange(extra_init_Pop);
+
+
+            return Population;
+        }   
+
+
+
+
+
+
+
     }
-
-
-
-    
-
-    
-
-
-
 
 }

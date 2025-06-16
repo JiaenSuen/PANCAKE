@@ -75,6 +75,19 @@ namespace PANCAKE_DSLib
         }
 
         public IEnumerable<string> AllObjects => map.Keys;
+
+
+        public  void show_All_Commidites_on_Map(bool show_detail = false)
+        {
+            Console.WriteLine("\n物品取得地點與價格：");
+            foreach (var obj in this.AllObjects) {
+                Console.WriteLine($"* {obj}:");
+                if(show_detail)
+                foreach (var (node, price) in this[obj])
+                    Console.WriteLine($"    {node.Name} @({node.Location_X},{node.Location_Y}) → {price}");
+            }
+        }
+
     }
 
 
@@ -91,7 +104,6 @@ namespace PANCAKE_Solution
 {   
     
     using PANCAKE_DSLib;
-    using PANCAKE_Read_Map;
     
 
 
@@ -144,7 +156,7 @@ namespace PANCAKE_Solution
             Cost = total;
             return total;
         }
-
+        
         public override string ToString()
         {
             var sb = new System.Text.StringBuilder();
