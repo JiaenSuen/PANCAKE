@@ -1,0 +1,59 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Project\\PANCAKE\\@WinForm_Dev\\PANCAKE_GUI_01\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7122DFE2-F35A-40AF-8A2B-B4936E3B5D19}|PANCAKE_GUI_01\\PANCAKE_GUI_01.csproj|e:\\project\\pancake\\@winform_dev\\pancake_gui_01\\pancake_gui_01\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7122DFE2-F35A-40AF-8A2B-B4936E3B5D19}|PANCAKE_GUI_01\\PANCAKE_GUI_01.csproj|solutionrelative:pancake_gui_01\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7122DFE2-F35A-40AF-8A2B-B4936E3B5D19}|PANCAKE_GUI_01\\PANCAKE_GUI_01.csproj|e:\\project\\pancake\\@winform_dev\\pancake_gui_01\\pancake_gui_01\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7122DFE2-F35A-40AF-8A2B-B4936E3B5D19}|PANCAKE_GUI_01\\PANCAKE_GUI_01.csproj|solutionrelative:pancake_gui_01\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "E:\\Project\\PANCAKE\\@WinForm_Dev\\PANCAKE_GUI_01\\PANCAKE_GUI_01\\Form1.cs",
+              "RelativeDocumentMoniker": "PANCAKE_GUI_01\\Form1.cs",
+              "ToolTip": "E:\\Project\\PANCAKE\\@WinForm_Dev\\PANCAKE_GUI_01\\PANCAKE_GUI_01\\Form1.cs",
+              "RelativeToolTip": "PANCAKE_GUI_01\\Form1.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAAwHYAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T15:48:48.609Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [\u8A2D\u8A08]",
+              "DocumentMoniker": "E:\\Project\\PANCAKE\\@WinForm_Dev\\PANCAKE_GUI_01\\PANCAKE_GUI_01\\Form1.cs",
+              "RelativeDocumentMoniker": "PANCAKE_GUI_01\\Form1.cs",
+              "ToolTip": "E:\\Project\\PANCAKE\\@WinForm_Dev\\PANCAKE_GUI_01\\PANCAKE_GUI_01\\Form1.cs [\u8A2D\u8A08]",
+              "RelativeToolTip": "PANCAKE_GUI_01\\Form1.cs [\u8A2D\u8A08]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T16:28:37.718Z",
+              "IsPinned": true,
+              "EditorCaption": " [\u8A2D\u8A08]"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
