@@ -13,9 +13,10 @@ using PANCAKE_GUI_01;
 using Tabu_Search;
 
 namespace PANCAKE_GUI_01
-{
+{   
     public partial class PANCAKE_GUI_Form_1 : Form
-    {
+    {   
+        public static string Temp_Text = "";
         private MapViewer mapViewer;
         Dictionary<string, Delegate> strategyDict;
         public List<string> userDemand = new List<string> {
@@ -42,6 +43,7 @@ namespace PANCAKE_GUI_01
                 { "Greedy Strategy"   , new Action<Map, List<string>, MapViewer, TextBox>(PANCAKE_RACP.PANCAKE_Greedy) },
                 { "Genetic Algorithm" , new Action<Map, List<string>, MapViewer, TextBox>(PANCAKE_RACP.PANCAKE_GA ) },
                 { "Tabu Search"       , new Action<Map, List<string>, MapViewer, TextBox>(PANCAKE_RACP.PANCAKE_Tabu_Search ) },
+                { "Genetic Mix TS"    , new Action<Map, List<string>, MapViewer, TextBox>(PANCAKE_RACP.PANCAKE_GA_TS_Mutaion ) },
             };
 
             
@@ -49,14 +51,13 @@ namespace PANCAKE_GUI_01
 
         private void PANCAKE_GUI_Form_1_Load(object sender, EventArgs e)
         {
-            this.map = MapLoader.Read_CSV_From_Map("../../../datasets/map6.csv");
+            this.map = MapLoader.Read_CSV_From_Map("../../../datasets/map7.csv");
             mapViewer.LoadNodes(this.map.Nodes);
 
             //userDemand = userDemand.Distinct().ToList();
             var userDemand_counts = userDemand.GroupBy(item => item).ToDictionary(g => g.Key, g => g.Count());
 
             //map.ObjectsAquireList.show_All_Commidites_on_Map();
-
         }
 
 
@@ -93,6 +94,8 @@ namespace PANCAKE_GUI_01
             }
             else
                 MessageBox.Show("µ¦²¤¥¼©w¸q¡I");
+
+            MinCost_label.Text = Temp_Text;
             
         }
 
@@ -119,12 +122,49 @@ namespace PANCAKE_GUI_01
             else if (Test_Cases.SelectedIndex == 2)
             {
                 demands = new List<string> {
-                    "Water", "Bread",  "Battery", "ChessBurger" , "Fuel" , "Tissue",
-                    "Flashlight","Fruit","Vegetables","FirstAid", "Towel","Juice",
-                    "Toothpaste","Hotdog","Soda","Coffee","Soap","Chocolate",
-                    "Compass","BeefBurger","RiceBall","Hotdog"
+                    "Water", "Bread", "Egg", "Battery", "Fuel", "FirstAid",
+                    "ChessBurger", "BeefBurger", "Milktea", "Noodles", "Fruit", "Juice",
+                    "Sandwich", "RiceBall", "Dumplings", "Hotdog", "EnergyBar", "InstantSoup",
+                    "Vegetables", "Soda", "Coffee", "Chocolate", "Chips", "CannedFood",
+                    "Toothpaste", "Shampoo", "Soap", "Tissue", "Detergent", "Towel",
+                    "Toothbrush", "LaundryPowder", "Razor", "Deodorant", "ToiletPaper", "HandSanitizer",
+                    "Camera", "Laptop", "Drone", "PowerBank", "LanCable", "SolarPanel",
+                    "Charger", "Smartwatch", "Earphones", "Tablet", "PortableFan", "VRHeadset",
+                    "MedKit", "Flashlight", "SleepingBag", "Tent", "Compass", "EmergencyRadio",
+                    "RainCoat", "FireStarter", "MultiTool", "WaterPurifier", "ThermalBlanket",
+                    "Painkiller", "Antibiotic", "Bandage", "Thermometer", "Gloves", "FaceMask",
+                    "BabyFood", "Diapers", "ToyCar", "StuffedAnimal", "Crayons", "PictureBook",
+                    "Bike", "Scooter", "Helmet", "TirePump", "MotorOil", "ToolKit"
                 };
             }
+            else if (Test_Cases.SelectedIndex == 3)
+            {
+                demands = new List<string> {
+                    "Rice", "Flour", "Noodles", "Vegetables", "Fruit", "Meat", "Egg", "Milk",
+                    "Cheese", "Tofu", "CannedFood",
+                    "Water", "SparklingWater", "Soda", "Cola", "OrangeJuice", "AppleJuice", "Milktea", "BlackTea",
+                    "GreenTea", "Coffee", "Latte", "Cappuccino", "EnergyDrink", "Beer", "CraftBeer", "Wine", "RedWine", "WhiteWine",
+                    "CheeseBurger", "BeefBurger", "ChickenBurger", "FishBurger", "VeggieBurger", "DoubleBurger",
+                    "EggSandwich", "HamSandwich", "ClubSandwich", "BLTSandwich", "RiceBall", "TunaRiceBall", "SalmonRiceBall",
+                    "PorkDumplings", "VegDumplings", "FriedDumplings", "ClassicHotdog", "CheeseHotdog", "SpicyHotdog",
+                    "InstantSoup", "MisoSoup", "SeafoodSoup", "EnergyBar", "ProteinBar",
+                    "Chocolate", "DarkChocolate", "WhiteChocolate", "PotatoChips", "CornChips",
+                    "PepperoniPizza", "MargheritaPizza", "SeafoodPizza", "BBQChickenPizza", "FriedRice", "CurryRice",
+                    "ChickenSalad", "CaesarSalad", "PastaBolognese", "Carbonara", "Sushi", "SalmonSushi", "EelSushi"
+                };
+            }
+            else if (Test_Cases.SelectedIndex == 4)
+            {
+                demands = new List<string> {
+                    "Rice", "Flour", "Noodles", "Vegetables", "Fruit", "Meat", "Egg", "Milk",
+                    "Cheese", "Tofu", "CannedFood" ,"Water", "SparklingWater", "Soda", "Cola",
+                    "OrangeJuice", "AppleJuice", "Milktea", "BlackTea",
+                    "GreenTea", "Coffee", "Latte", "Cappuccino", 
+                };
+            }
+
+
+
 
             var available = new HashSet<string>(
                 map.ObjectsAquireList.AllObjects,
@@ -145,20 +185,25 @@ namespace PANCAKE_GUI_01
 
     class PANCAKE_RACP
     {
+        
         public static void PANCAKE_Greedy(Map map, List<string> userDemand, MapViewer mapViewer, TextBox RAC_Path_Box)
         {
             if (userDemand.Count == 0) return;
             var result = Greedy.Greedy_Method(map, userDemand);
             mapViewer.LoadPath(result);
             RAC_Path_Box.Text = result.ToString();
+            PANCAKE_GUI_Form_1.Temp_Text = Math.Round(result.Cost, 2).ToString();
         }
 
         public static void PANCAKE_GA(Map map, List<string> userDemand, MapViewer mapViewer, TextBox RAC_Path_Box)
         {   
             if(userDemand.Count == 0) return;
-            var results = GA.Genetic_Evolution(map, userDemand , populationSize:200);
+            List<Recommend_Aquire_Commodities_Path> init_pop = new List<Recommend_Aquire_Commodities_Path> (){ };
+            //init_pop.Add(Greedy.Greedy_Method(map, userDemand));
+            var results = GA.Genetic_Evolution(map, userDemand , generations:2000 , populationSize:250 , extra_init_Pop: init_pop);
             mapViewer.LoadPath(results[0]);
             RAC_Path_Box.Text = results[0].ToString();
+            PANCAKE_GUI_Form_1.Temp_Text = Math.Round(results[0].Cost, 2).ToString();
         }
 
         public static void PANCAKE_Tabu_Search(Map map, List<string> userDemand, MapViewer mapViewer, TextBox RAC_Path_Box)
@@ -168,6 +213,18 @@ namespace PANCAKE_GUI_01
             var result = TS.Tabu_Search(map, userDemand , Greedy_result , maxIterations:1000,tabuListSize:100,neighborCount:100);
             mapViewer.LoadPath(result);
             RAC_Path_Box.Text = result.ToString();
+            PANCAKE_GUI_Form_1.Temp_Text = Math.Round(result.Cost,2).ToString();
+        }
+
+        public static void PANCAKE_GA_TS_Mutaion(Map map, List<string> userDemand, MapViewer mapViewer, TextBox RAC_Path_Box)
+        {
+            if (userDemand.Count == 0) return;
+            List<Recommend_Aquire_Commodities_Path> init_pop = new List<Recommend_Aquire_Commodities_Path>() { };
+            //init_pop.Add(Greedy.Greedy_Method(map, userDemand));
+            var results = Genetic_Algorithm_TS_Mutaion.GA_ts.Genetic_Evolution(map, userDemand, generations:50 ,populationSize: 100 ,extra_init_Pop:init_pop);
+            mapViewer.LoadPath(results[0]);
+            RAC_Path_Box.Text = results[0].ToString();
+            PANCAKE_GUI_Form_1.Temp_Text = Math.Round(results[0].Cost, 2).ToString();
         }
     };
 

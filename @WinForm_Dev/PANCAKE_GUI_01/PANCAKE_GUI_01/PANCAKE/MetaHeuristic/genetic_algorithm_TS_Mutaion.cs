@@ -1,9 +1,9 @@
 
+using Tabu_Search;
 
 
 
-
-namespace Genetic_Algorithm
+namespace Genetic_Algorithm_TS_Mutaion
 {
     using Metaheuristic_Interface;
     using PANCAKE_DSLib;
@@ -65,11 +65,7 @@ namespace Genetic_Algorithm
             }
 
             // 建立子代路徑並計算成本
-            var child = new Recommend_Aquire_Commodities_Path()
-            {
-                Start_Node = parent1.Start_Node,
-                UnitMoveCost = parent1.UnitMoveCost,
-            };
+            var child = new Recommend_Aquire_Commodities_Path() { Start_Node=parent1.Start_Node , UnitMoveCost = parent1.UnitMoveCost };
             child.Path = childPath;
             child.Calculate_Cost();
             return child;
@@ -80,90 +76,19 @@ namespace Genetic_Algorithm
     }
 
 
-    class Mutaion
+    class GA_ts_Mutaion
     {
-        public delegate Recommend_Aquire_Commodities_Path MutationOperator(
-            Recommend_Aquire_Commodities_Path path,
-            Map map,
-            int mutationStrength,
-            double mutationRate
-        );
+         
 
-
-        // Mutaion by Swap N times
-        public static Recommend_Aquire_Commodities_Path Swap_Node_Mutaion(Recommend_Aquire_Commodities_Path thePath, Map map, int Mutation_Strength = 3, double Mutaion_Rate = 0.2)
-        {
-            var rand = new Random();
-            int i, j;
-            if (rand.NextDouble() < Mutaion_Rate)
-            {
-                for (int k = 0; k < Mutation_Strength; k++)
-                {
-                    i = rand.Next(0, thePath.Path.Count);
-                    j = rand.Next(0, thePath.Path.Count);
-                    if (i == j) j = rand.Next(0, thePath.Path.Count);
-
-                    Aquire_Node tmpNode = thePath.Path[i];
-                    thePath.Path[i] = thePath.Path[j];
-                    thePath.Path[j] = tmpNode;
-                }
-                thePath.Calculate_Cost();
-            }
-            return thePath;
-        }
-
-        // Mutaion by Change Itme Source N times
-        public static Recommend_Aquire_Commodities_Path Change_Sourse_Mutaion(Recommend_Aquire_Commodities_Path thePath, Map map, int Mutation_Strength = 1, double Mutaion_Rate = 0.2)
-        {
-            var rand = new Random();
-
-            if (rand.NextDouble() < Mutaion_Rate)
-            {
-                for (int k = 0; k < Mutation_Strength; k++)
-                {
-                    int mutation_Index = rand.Next(0, thePath.Path.Count);
-                    var old_Acquire_Node = thePath.Path[mutation_Index];
-                    string commodity = old_Acquire_Node.Item.Name;
-
-
-                    var candidates = map.ObjectsAquireList[commodity].Where(t => t.node != old_Acquire_Node.Node).ToList();
-
-                    if (candidates.Count > 0)
-                    {
-                        // 隨機選一個新節點
-                        var (newNode, newPrice) = candidates[rand.Next(candidates.Count)];
-                        var newItem = new SupplyItem(commodity, newPrice);
-                        thePath.Path[mutation_Index] = new Aquire_Node(newNode, newItem);
-                    }
-                    else k--;
-
-                }
-                thePath.Calculate_Cost();
-            }
-            return thePath;
-        }
-
-
-
-
-
-
-
-        private List<MutationOperator> mutationMethods;
-        public Mutaion()
-        {
-            mutationMethods = new List<MutationOperator>
-            {
-                Change_Sourse_Mutaion,
-                Swap_Node_Mutaion
-            };
-        }
+         
         public Recommend_Aquire_Commodities_Path Execute_Random_Mutation(
-        Recommend_Aquire_Commodities_Path path, Map map, int strength = 1, double rate = 0.2)
+        Recommend_Aquire_Commodities_Path path, Map map, List<string> userDemand, int strength = 1, double rate = 0.1)
         {
             var rand = new Random();
-            var selected = mutationMethods[rand.Next(mutationMethods.Count)];
-            return selected.Invoke(path, map, strength, rate);
+            if (rand.NextDouble() < rate) {
+                path = TS.Tabu_Search( map , userDemand , path , maxIterations:50);
+            }
+            return path;
         }
 
     }
@@ -193,13 +118,13 @@ namespace Genetic_Algorithm
 
 
 
-    class GA
+    class GA_ts
     {
         public static List<Recommend_Aquire_Commodities_Path> Genetic_Evolution(
             Map map,
             List<string> userDemand,
             int populationSize = 100,
-            int generations = 1000,
+            int generations = 100,
             double crossoverRate = 0.8,
             int mutationStrength = 3,
             double mutationRate = 0.2,
@@ -212,7 +137,7 @@ namespace Genetic_Algorithm
             
             var population = MH_init_Utils.Generate_RACP_Population(map, userDemand, populationSize , extra_init_Pop!);
             var rand = new Random();
-            var mutator = new Mutaion();
+            var mutator = new GA_ts_Mutaion();
             var Global_Iteration_Best = population.OrderBy(p => p.Cost).First();
 
 
@@ -236,7 +161,7 @@ namespace Genetic_Algorithm
                         };// 未交配則複製父1
                         child.Calculate_Cost();
                     }
-                    child = mutator.Execute_Random_Mutation(child, map, mutationStrength, mutationRate);
+                    child = mutator.Execute_Random_Mutation(child, map, userDemand , mutationStrength, mutationRate);
                     newPopulation.Add(child);
                 }
                 var worstIndex = newPopulation

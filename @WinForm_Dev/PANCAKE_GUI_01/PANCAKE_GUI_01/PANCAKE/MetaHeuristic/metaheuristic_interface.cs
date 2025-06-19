@@ -4,6 +4,7 @@ using PANCAKE_Solution;
 
 using Exhaustive_PANCAKE;
 using Basic_Algorithms_PANCAKE;
+using PANCAKE_Params;
 
 namespace Metaheuristic_Interface
 {
@@ -24,7 +25,11 @@ namespace Metaheuristic_Interface
             List<string> Require_List = new List<string>(Require_List_input);
 
 
-            var thePath = new Recommend_Aquire_Commodities_Path();
+            var thePath = new Recommend_Aquire_Commodities_Path
+            {
+                Start_Node = Params.pStart_Node,
+                UnitMoveCost = Params.pUnit_Cost,
+            };
 
             while (Require_List.Count != 0)
             {

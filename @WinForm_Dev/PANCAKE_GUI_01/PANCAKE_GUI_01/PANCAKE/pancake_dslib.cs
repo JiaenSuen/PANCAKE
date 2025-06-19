@@ -206,8 +206,7 @@ namespace PANCAKE_Read_Map
 
     public static class MapLoader
     {
-        public static Map Read_CSV_From_Map(string filePath)
-        {
+        public static Map Read_CSV_From_Map(string filePath) {
             var map = new Map();
             var lines = File.ReadAllLines(filePath);
             if (lines.Length <= 1)
@@ -252,8 +251,7 @@ namespace PANCAKE_Read_Map
         }
 
         // 前面相同：支援雙引號的簡易 CSV 解析
-        private static List<string> ParseCsvLine(string line)
-        {
+        private static List<string> ParseCsvLine(string line) {
             var result = new List<string>();
             bool inQuotes = false;
             var cur = "";

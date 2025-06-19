@@ -35,6 +35,8 @@
             Algorithm_Selection = new ComboBox();
             txtDemandInput = new TextBox();
             Test_Cases = new ComboBox();
+            MinCost_label = new Label();
+            label1 = new Label();
             SuspendLayout();
             // 
             // MapFrame
@@ -79,7 +81,7 @@
             // Algorithm_Selection
             // 
             Algorithm_Selection.FormattingEnabled = true;
-            Algorithm_Selection.Items.AddRange(new object[] { "Greedy Strategy", "Genetic Algorithm", "Tabu Search", "" });
+            Algorithm_Selection.Items.AddRange(new object[] { "Greedy Strategy", "Genetic Algorithm", "Tabu Search", "Genetic Mix TS" });
             Algorithm_Selection.Location = new Point(788, 488);
             Algorithm_Selection.Name = "Algorithm_Selection";
             Algorithm_Selection.Size = new Size(300, 27);
@@ -98,17 +100,38 @@
             // Test_Cases
             // 
             Test_Cases.FormattingEnabled = true;
-            Test_Cases.Items.AddRange(new object[] { "Not Use", "Test Case 01", "Test Case 02", "Test Case 03" });
+            Test_Cases.Items.AddRange(new object[] { "Not Use", "Test Case Map6-2", "Test Case Map6-1", "Test Case Map7-1", "Test Case Map7-2" });
             Test_Cases.Location = new Point(1191, 488);
             Test_Cases.Name = "Test_Cases";
             Test_Cases.Size = new Size(200, 27);
             Test_Cases.TabIndex = 6;
+            // 
+            // MinCost_label
+            // 
+            MinCost_label.AutoSize = true;
+            MinCost_label.Font = new Font("Microsoft JhengHei UI", 12F);
+            MinCost_label.Location = new Point(930, 567);
+            MinCost_label.Name = "MinCost_label";
+            MinCost_label.Size = new Size(0, 25);
+            MinCost_label.TabIndex = 8;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft JhengHei UI", 12F);
+            label1.Location = new Point(790, 565);
+            label1.Name = "label1";
+            label1.Size = new Size(110, 25);
+            label1.TabIndex = 9;
+            label1.Text = "Min Cost : ";
             // 
             // PANCAKE_GUI_Form_1
             // 
             AutoScaleDimensions = new SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1782, 953);
+            Controls.Add(label1);
+            Controls.Add(MinCost_label);
             Controls.Add(Test_Cases);
             Controls.Add(txtDemandInput);
             Controls.Add(Algorithm_Selection);
@@ -132,5 +155,7 @@
         private ComboBox Algorithm_Selection;
         private TextBox txtDemandInput;
         private ComboBox Test_Cases;
+        private Label MinCost_label;
+        private Label label1;
     }
 }

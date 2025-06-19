@@ -1,7 +1,7 @@
 using PANCAKE_Read_Map;
 using PANCAKE_DSLib;
 using PANCAKE_Solution;
-
+using PANCAKE_Params;
 
 
 
@@ -20,8 +20,8 @@ namespace Basic_Algorithms_PANCAKE
 
             var path = new Recommend_Aquire_Commodities_Path
             {
-                Start_Node = new Node("Origin", 0, 0, new List<SupplyItem>()),
-                UnitMoveCost = 0.5
+                Start_Node = Params.pStart_Node,
+                UnitMoveCost = Params.pUnit_Cost,
             };
 
 

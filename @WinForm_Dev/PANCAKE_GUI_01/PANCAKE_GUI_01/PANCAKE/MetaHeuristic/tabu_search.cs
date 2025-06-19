@@ -120,7 +120,7 @@ namespace Tabu_Search
 
             Move? moveRecord = null;
 
-            int Random_Select = rand.Next(1, 2);
+            int Random_Select = rand.Next(1, 3);
             if (Random_Select == 1) // 選一個物件 換一個節點買
             {
 
