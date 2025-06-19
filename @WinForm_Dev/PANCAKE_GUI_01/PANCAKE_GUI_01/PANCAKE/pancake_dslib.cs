@@ -104,7 +104,8 @@ namespace PANCAKE_Solution
 {   
     
     using PANCAKE_DSLib;
-    
+    using PANCAKE_Params;
+
 
 
     // 增量成本 = 距離(current → node) × 單位距離成本 + 該物品在 node 的售價
@@ -127,8 +128,8 @@ namespace PANCAKE_Solution
         public List<Aquire_Node> Path { get; set; } = new List<Aquire_Node>();
         public double Cost { get; private set; } // 累計的總成本（移動距離*單位距離花費價格 + 購買價格）
 
-        public Node Start_Node = new Node("Origin", 0, 0,  new List<SupplyItem>());
-        public double UnitMoveCost { get; set; } = 0.5; 
+        public Node Start_Node = Params.pStart_Node;
+        public double UnitMoveCost { get; set; } = Params.pUnit_Cost; 
 
         public double Calculate_Cost()
         {
@@ -186,6 +187,7 @@ namespace PANCAKE_Read_Map
 {
 
     using PANCAKE_DSLib;
+    using PANCAKE_Solution;
 
 
     public class Map

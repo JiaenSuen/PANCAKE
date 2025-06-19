@@ -1,14 +1,15 @@
-using PANCAKE_Read_Map;
-using PANCAKE_DSLib;
-using PANCAKE_Solution;
 
-using Exhaustive_PANCAKE;
-using Basic_Algorithms_PANCAKE;
-
-using Metaheuristic_Interface;
 
 namespace Tabu_Search
 {
+    using PANCAKE_Read_Map;
+    using PANCAKE_DSLib;
+    using PANCAKE_Solution;
+
+    using Exhaustive_PANCAKE;
+    using Basic_Algorithms_PANCAKE;
+
+    using Metaheuristic_Interface;
 
     class TS
     {

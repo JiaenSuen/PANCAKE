@@ -1,6 +1,4 @@
 
-using Tabu_Search;
-
 
 
 namespace Genetic_Algorithm_TS_Mutaion
@@ -9,6 +7,9 @@ namespace Genetic_Algorithm_TS_Mutaion
     using PANCAKE_DSLib;
     using PANCAKE_Solution;
     using PANCAKE_Read_Map;
+
+    using Tabu_Search;
+
 
     class Crossover
     {

@@ -1,10 +1,10 @@
 Node_Name,Location_X,Location_Y,Objects
-Shop_A,10,20,Water:15;Bread:10;Battery:25
-StationB,15,25,Battery:22;FirstAid:30
-WarehouseC,8,18,Fuel:40;Bread:12
-ShopD,12,22,Water:17;Egg:5
-DepotE,14,24,Fuel:38;FirstAid:28;Egg:6
-7-11,3,4,Milktea:20;Burger:50
+ElonMusk,10,20,Water:15;Bread:10;Battery:25
+Redmon,15,25,Battery:22;FirstAid:30
+Facebook,8,18,Fuel:40;Bread:12
+ResNet,12,22,Water:17;Egg:5
+ConvNet,14,24,Fuel:38;FirstAid:28;Egg:6
+Kowei,3,4,Milktea:20;Burger:50
 Fourier,-20,-41,Egg:3;Bread:10;Water:1;ChessBurger:35
 Laplace,-3,8,ChessBurger:45;BeefBurger:80
 LeCun,25,25,Camera:150;Battery:10
@@ -57,7 +57,7 @@ Rivest,5,23,Bread:19;FirstAid:59;BeefBurger:107
 Shamir,40,-28,Battery:13;Camera:115
 Adleman,-10,-14,Camera:123;Fuel:66
 Karp,-2,-3,FirstAid:59;Fuel:32
-Cook,-4,-22,Battery:79;BeefBurger:103
+Karpathy,-4,-22,Battery:79;BeefBurger:103
 Chomsky,12,-16,Egg:7;Fuel:47;Water:15
 VonNeumann,48,7,Camera:168;Battery:70
 Boole,45,31,Egg:3;Bread:14

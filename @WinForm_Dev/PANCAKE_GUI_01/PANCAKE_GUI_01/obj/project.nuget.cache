@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "UjCTB5r7mPE=",
+  "dgSpecHash": "2zHjW4DAdEs=",
   "success": true,
   "projectFilePath": "E:\\Project\\PANCAKE\\@WinForm_Dev\\PANCAKE_GUI_01\\PANCAKE_GUI_01\\PANCAKE_GUI_01.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\google.ortools\\9.14.6206\\google.ortools.9.14.6206.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\google.ortools.runtime.linux-arm64\\9.14.6206\\google.ortools.runtime.linux-arm64.9.14.6206.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\google.ortools.runtime.linux-x64\\9.14.6206\\google.ortools.runtime.linux-x64.9.14.6206.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\google.ortools.runtime.osx-arm64\\9.14.6206\\google.ortools.runtime.osx-arm64.9.14.6206.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\google.ortools.runtime.osx-x64\\9.14.6206\\google.ortools.runtime.osx-x64.9.14.6206.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\google.ortools.runtime.win-x64\\9.14.6206\\google.ortools.runtime.win-x64.9.14.6206.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\google.protobuf\\3.31.1\\google.protobuf.3.31.1.nupkg.sha512"
+  ],
   "logs": []
 }

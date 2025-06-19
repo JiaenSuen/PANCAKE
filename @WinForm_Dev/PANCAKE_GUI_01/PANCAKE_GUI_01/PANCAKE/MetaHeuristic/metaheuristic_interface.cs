@@ -1,13 +1,15 @@
-using PANCAKE_Read_Map;
-using PANCAKE_DSLib;
-using PANCAKE_Solution;
-
-using Exhaustive_PANCAKE;
-using Basic_Algorithms_PANCAKE;
-using PANCAKE_Params;
 
 namespace Metaheuristic_Interface
 {
+    using PANCAKE_Read_Map;
+    using PANCAKE_DSLib;
+    using PANCAKE_Solution;
+
+    using Exhaustive_PANCAKE;
+    using Basic_Algorithms_PANCAKE;
+    using PANCAKE_Params;
+
+
 
     class MH_init_Utils
     {
