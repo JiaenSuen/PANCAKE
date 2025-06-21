@@ -293,7 +293,7 @@ namespace PANCAKE_GUI_01
         {
             if (userDemand.Count == 0) return;
             var Greedy_result = Greedy.Greedy_Method(map, userDemand);
-            var result = TS.Tabu_Search(map, userDemand , Greedy_result , maxIterations:1000,tabuListSize:100,neighborCount:100);
+            var result = TS.Tabu_Search(map, userDemand , Greedy_result , maxIterations:2000,tabuListSize:500,neighborCount:100);
             mapViewer.LoadPath(result);
             RAC_Path_Box.Text = result.ToString();
             PANCAKE_GUI_Form_1.Temp_Text = Math.Round(result.Cost,2).ToString();
@@ -304,7 +304,7 @@ namespace PANCAKE_GUI_01
             if (userDemand.Count == 0) return;
             List<Recommend_Aquire_Commodities_Path> init_pop = new List<Recommend_Aquire_Commodities_Path>() { };
             //init_pop.Add(Greedy.Greedy_Method(map, userDemand));
-            var results = Genetic_Algorithm_TS_Mutaion.GA_ts.Genetic_Evolution(map, userDemand, generations:50 ,populationSize: 100 ,extra_init_Pop:init_pop);
+            var results = Genetic_Algorithm_TS_Mutaion.GA_ts.Genetic_Evolution(map, userDemand, generations:200 ,populationSize: 100 ,extra_init_Pop:init_pop);
             mapViewer.LoadPath(results[0]);
             RAC_Path_Box.Text = results[0].ToString();
             PANCAKE_GUI_Form_1.Temp_Text = Math.Round(results[0].Cost, 2).ToString();

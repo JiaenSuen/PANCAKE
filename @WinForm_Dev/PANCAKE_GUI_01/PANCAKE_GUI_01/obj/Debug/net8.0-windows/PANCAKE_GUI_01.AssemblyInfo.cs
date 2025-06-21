@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PANCAKE_GUI_01")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+880523afe5c13b370bcacfedab7d4e4ce5a69740")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f28a97cc8da501f74cf90a7ccab12d5fa56e40e4")]
 [assembly: System.Reflection.AssemblyProductAttribute("PANCAKE_GUI_01")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PANCAKE_GUI_01")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
