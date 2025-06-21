@@ -224,6 +224,22 @@ namespace PANCAKE_GUI_01
             userDemand = GetUserDemandFromTextBox();
             show_demands();
         }
+
+        private void exe_button_Click(object sender, EventArgs e)
+        {
+            string selectedStrategy = Algorithm_Selection.SelectedItem.ToString();
+            userDemand = GetUserDemandFromTextBox();
+
+            if (strategyDict.ContainsKey(selectedStrategy))
+            {
+                var func = strategyDict[selectedStrategy] as Action<Map, List<string>, MapViewer, TextBox>;
+                func?.Invoke(map, userDemand, mapViewer, RAC_Path_Box);
+            }
+            else
+                MessageBox.Show("µ¦²¤¥¼©w¸q¡I");
+
+            MinCost_label.Text = Temp_Text;
+        }
     }
 
 

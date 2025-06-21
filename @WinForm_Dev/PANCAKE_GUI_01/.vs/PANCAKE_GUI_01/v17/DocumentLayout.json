@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "E:\\Project\\PANCAKE\\@WinForm_Dev\\PANCAKE_GUI_01\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7122DFE2-F35A-40AF-8A2B-B4936E3B5D19}|PANCAKE_GUI_01\\PANCAKE_GUI_01.csproj|e:\\project\\pancake\\@winform_dev\\pancake_gui_01\\pancake_gui_01\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7122DFE2-F35A-40AF-8A2B-B4936E3B5D19}|PANCAKE_GUI_01\\PANCAKE_GUI_01.csproj|solutionrelative:pancake_gui_01\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7122DFE2-F35A-40AF-8A2B-B4936E3B5D19}|PANCAKE_GUI_01\\PANCAKE_GUI_01.csproj|e:\\project\\pancake\\@winform_dev\\pancake_gui_01\\pancake_gui_01\\pancake\\metaheuristic\\whale_optimization_ts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7122DFE2-F35A-40AF-8A2B-B4936E3B5D19}|PANCAKE_GUI_01\\PANCAKE_GUI_01.csproj|solutionrelative:pancake_gui_01\\pancake\\metaheuristic\\whale_optimization_ts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7122DFE2-F35A-40AF-8A2B-B4936E3B5D19}|PANCAKE_GUI_01\\PANCAKE_GUI_01.csproj|e:\\project\\pancake\\@winform_dev\\pancake_gui_01\\pancake_gui_01\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7122DFE2-F35A-40AF-8A2B-B4936E3B5D19}|PANCAKE_GUI_01\\PANCAKE_GUI_01.csproj|solutionrelative:pancake_gui_01\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7122DFE2-F35A-40AF-8A2B-B4936E3B5D19}|PANCAKE_GUI_01\\PANCAKE_GUI_01.csproj|e:\\project\\pancake\\@winform_dev\\pancake_gui_01\\pancake_gui_01\\pancake\\basic_algorithms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7122DFE2-F35A-40AF-8A2B-B4936E3B5D19}|PANCAKE_GUI_01\\PANCAKE_GUI_01.csproj|solutionrelative:pancake_gui_01\\pancake\\basic_algorithms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7122DFE2-F35A-40AF-8A2B-B4936E3B5D19}|PANCAKE_GUI_01\\PANCAKE_GUI_01.csproj|e:\\project\\pancake\\@winform_dev\\pancake_gui_01\\pancake_gui_01\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7122DFE2-F35A-40AF-8A2B-B4936E3B5D19}|PANCAKE_GUI_01\\PANCAKE_GUI_01.csproj|solutionrelative:pancake_gui_01\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,11 +22,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Form1.cs [\u8A2D\u8A08]",
               "DocumentMoniker": "E:\\Project\\PANCAKE\\@WinForm_Dev\\PANCAKE_GUI_01\\PANCAKE_GUI_01\\Form1.cs",
               "RelativeDocumentMoniker": "PANCAKE_GUI_01\\Form1.cs",
@@ -40,32 +40,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "whale_optimization_ts.cs",
-              "DocumentMoniker": "E:\\Project\\PANCAKE\\@WinForm_Dev\\PANCAKE_GUI_01\\PANCAKE_GUI_01\\PANCAKE\\MetaHeuristic\\whale_optimization_ts.cs",
-              "RelativeDocumentMoniker": "PANCAKE_GUI_01\\PANCAKE\\MetaHeuristic\\whale_optimization_ts.cs",
-              "ToolTip": "E:\\Project\\PANCAKE\\@WinForm_Dev\\PANCAKE_GUI_01\\PANCAKE_GUI_01\\PANCAKE\\MetaHeuristic\\whale_optimization_ts.cs",
-              "RelativeToolTip": "PANCAKE_GUI_01\\PANCAKE\\MetaHeuristic\\whale_optimization_ts.cs",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAAAJQAAACWAAAAAAAAAA==",
+              "Title": "Basic_Algorithms.cs",
+              "DocumentMoniker": "E:\\Project\\PANCAKE\\@WinForm_Dev\\PANCAKE_GUI_01\\PANCAKE_GUI_01\\PANCAKE\\Basic_Algorithms.cs",
+              "RelativeDocumentMoniker": "PANCAKE_GUI_01\\PANCAKE\\Basic_Algorithms.cs",
+              "ToolTip": "E:\\Project\\PANCAKE\\@WinForm_Dev\\PANCAKE_GUI_01\\PANCAKE_GUI_01\\PANCAKE\\Basic_Algorithms.cs",
+              "RelativeToolTip": "PANCAKE_GUI_01\\PANCAKE\\Basic_Algorithms.cs",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAUwKwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-19T21:57:37.446Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "E:\\Project\\PANCAKE\\@WinForm_Dev\\PANCAKE_GUI_01\\PANCAKE_GUI_01\\Form1.cs",
-              "RelativeDocumentMoniker": "PANCAKE_GUI_01\\Form1.cs",
-              "ToolTip": "E:\\Project\\PANCAKE\\@WinForm_Dev\\PANCAKE_GUI_01\\PANCAKE_GUI_01\\Form1.cs",
-              "RelativeToolTip": "PANCAKE_GUI_01\\Form1.cs",
-              "ViewState": "AgIAADEBAAAAAAAAAAAAAD0BAABVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T15:48:48.609Z",
+              "WhenOpened": "2025-06-20T06:02:43.296Z",
               "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "E:\\Project\\PANCAKE\\@WinForm_Dev\\PANCAKE_GUI_01\\PANCAKE_GUI_01\\Form1.cs",
+              "RelativeDocumentMoniker": "PANCAKE_GUI_01\\Form1.cs",
+              "ToolTip": "E:\\Project\\PANCAKE\\@WinForm_Dev\\PANCAKE_GUI_01\\PANCAKE_GUI_01\\Form1.cs",
+              "RelativeToolTip": "PANCAKE_GUI_01\\Form1.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T15:48:48.609Z",
+              "EditorCaption": ""
             }
           ]
         }

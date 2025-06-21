@@ -48,6 +48,7 @@
             Demands_Show = new TextBox();
             NoteSpace = new TextBox();
             label8 = new Label();
+            exe_button = new Button();
             SuspendLayout();
             // 
             // MapFrame
@@ -249,11 +250,22 @@
             label8.TabIndex = 20;
             label8.Text = "Note";
             // 
+            // exe_button
+            // 
+            exe_button.Location = new Point(536, 555);
+            exe_button.Name = "exe_button";
+            exe_button.Size = new Size(164, 42);
+            exe_button.TabIndex = 21;
+            exe_button.Text = "進行規劃";
+            exe_button.UseVisualStyleBackColor = true;
+            exe_button.Click += exe_button_Click;
+            // 
             // PANCAKE_GUI_Form_1
             // 
             AutoScaleDimensions = new SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1782, 953);
+            Controls.Add(exe_button);
             Controls.Add(label8);
             Controls.Add(NoteSpace);
             Controls.Add(Demands_Show);
@@ -303,5 +315,6 @@
         private TextBox Demands_Show;
         private TextBox NoteSpace;
         private Label label8;
+        private Button exe_button;
     }
 }

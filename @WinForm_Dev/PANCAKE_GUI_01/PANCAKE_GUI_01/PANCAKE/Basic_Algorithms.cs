@@ -176,10 +176,8 @@ namespace Basic_Algorithms_PANCAKE
     // dp[newState, j] = min{ dp[state, lastNode] + 移動成本(lastNode→j) + 購買價格(i 在 j 的售價) }
     public static class DP
     {
-        /// <summary>
         /// 動態規劃(bitmask)解最小成本取貨路徑。
         /// State: (mask, lastNodeIndex) 表示已取物品集合與當前所在節點。
-        /// </summary>
         public static Recommend_Aquire_Commodities_Path DP_Method(Map map, List<string> demands)
         {
             // 過濾無供應物品
@@ -287,7 +285,7 @@ namespace Basic_Algorithms_PANCAKE
             return result;
         }
     }
-
+        
 
 }
 
