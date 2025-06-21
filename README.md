@@ -20,7 +20,7 @@ To solve this, PANCAKE implements a variety of algorithmic strategies :
 The project is a blend of combinatorial optimization and intelligent pathfinding, designed to explore algorithm efficiency and real-world applicability in logistics-style scenarios.  
 
 
-[MD](/@Dev/DataStruct.md)
+[MD](/Dev/DataStruct.md)
 
 
 ### Author
