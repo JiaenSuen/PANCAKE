@@ -1,0 +1,158 @@
+digraph PANCAKE_Algorithms {
+  graph [
+    rankdir=TB,
+    newrank=true,
+    compound=true,
+    splines=ortho,
+    nodesep=0.24,
+    ranksep=0.38,
+    pad=0.14,
+    bgcolor="white",
+    fontname="Times-Roman",
+    fontsize=18,
+    labelloc="t",
+    labeljust="c",
+    label="Algorithmic Flowcharts of DWOA-AVNS and DFOX-APNS\nDiscrete metaheuristic designs for the PANCAKE procurement-routing optimization problem"
+  ];
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    fillcolor="#FCFCFC",
+    color="#5B6470",
+    penwidth=0.8,
+    fontname="Times-Roman",
+    fontsize=9.5,
+    margin="0.08,0.05"
+  ];
+
+  edge [
+    color="#3D4650",
+    penwidth=0.9,
+    arrowsize=0.62,
+    fontname="Times-Italic",
+    fontsize=8.5
+  ];
+
+  // ------------------------------------------------------------------
+  // LEFT PANEL: DWOA-AVNS
+  // ------------------------------------------------------------------
+  subgraph cluster_dwoa {
+    label=<<B>DWOA-AVNS</B><BR/><FONT POINT-SIZE="11">Discrete Whale Optimization with Adaptive Variable-Neighborhood Search</FONT>>;
+    labelloc="t"; labeljust="c"; fontname="Times-Roman"; fontsize=15;
+    color="#9AA9B8"; penwidth=1.0; style="rounded,filled"; fillcolor="#FAFBFC"; margin=14;
+
+    d_enc [width=2.75, fillcolor="#F6F8FA", color="#879AAA",
+      label=<<B>1. Problem Encoding</B><BR ALIGN="LEFT"/><FONT POINT-SIZE="9">• Double-layer representation<BR ALIGN="LEFT"/>• Visit-order permutation<BR ALIGN="LEFT"/>• Source-selection vector</FONT>>];
+
+    d_init [width=2.95, fillcolor="#F6F8FA", color="#879AAA",
+      label=<<B>2. Population Initialization</B><BR ALIGN="LEFT"/><FONT POINT-SIZE="9">• Initialize whale population<BR ALIGN="LEFT"/>• Evaluate objective<BR ALIGN="LEFT"/>• Purchase cost + λ × travel distance</FONT>>];
+
+    d_search [width=4.15, fillcolor="#F1F4F6", color="#71879A", penwidth=1.0,
+      label=<<B>3. WOA-inspired Search Step</B><BR/><FONT POINT-SIZE="9">Progress-controlled exploration–exploitation branch</FONT>>];
+
+    subgraph cluster_dwoa_search {
+      label=""; color="#BAC5CE"; penwidth=0.7; style="rounded,dashed"; margin=8;
+      d_exploit [width=2.05,
+        label=<<I>Exploitation</I><BR/><B>Encircling Analogue</B><BR/><FONT POINT-SIZE="8.5">elite recombination<BR/>partial leader alignment</FONT>>];
+      d_explore [width=2.05,
+        label=<<I>Exploration</I><BR/><B>Peer-guided Exploration</B><BR/><FONT POINT-SIZE="8.5">random-whale recombination<BR/>block relocation</FONT>>];
+      d_spiral [width=2.05,
+        label=<<I>Intensification</I><BR/><B>Spiral-like Refinement</B><BR/><FONT POINT-SIZE="8.5">insertion / reversal</FONT>>];
+      { rank=same; d_exploit; d_explore; d_spiral; }
+      d_exploit -> d_explore [style=invis, weight=20];
+      d_explore -> d_spiral [style=invis, weight=20];
+    }
+
+    d_moves [width=3.15, fillcolor="#F7F8F9",
+      label=<<B>4. Coupled Discrete Moves</B><BR ALIGN="LEFT"/><FONT POINT-SIZE="9">• source mutation<BR ALIGN="LEFT"/>• joint order–source perturbation</FONT>>];
+
+    d_avns [width=2.75, fillcolor="#F7F8F9",
+      label=<<B>5. Competitive AVNS</B><BR ALIGN="LEFT"/><FONT POINT-SIZE="8.5">• refine competitive offspring<BR ALIGN="LEFT"/>• swap / insert / reverse / source / joint</FONT>>];
+
+    d_update [width=2.20, fillcolor="#F7F8F9",
+      label=<<B>6. Population Update</B><BR ALIGN="LEFT"/><FONT POINT-SIZE="8.5">• greedy replacement<BR ALIGN="LEFT"/>• update global best</FONT>>];
+
+    d_control [width=2.70, fillcolor="#F1F5F3", color="#82958D",
+      label=<<B>7. Stagnation &amp; Diversity Control</B><BR ALIGN="LEFT"/><FONT POINT-SIZE="8.5">• detect stagnation / low diversity<BR ALIGN="LEFT"/>• elite VNS + partial restart</FONT>>];
+
+    d_out [width=3.30, fillcolor="#F1F4F6", color="#71879A",
+      label=<<B>8. Output</B><BR/><FONT POINT-SIZE="9">Best procurement-routing solution</FONT>>];
+
+    d_key [shape=box, width=6.90, fillcolor="#F7F8F9", color="#A6B1BA",
+      label=<<B>Key mechanisms:</B> <FONT POINT-SIZE="9">discrete recombination · coupled order–source moves · adaptive VNS · elite restart</FONT>>];
+
+    { rank=same; d_enc; d_init; }
+    d_enc -> d_init;
+    d_init -> d_search;
+    d_search -> d_exploit; d_search -> d_explore; d_search -> d_spiral;
+    d_exploit -> d_moves; d_explore -> d_moves; d_spiral -> d_moves;
+    d_moves -> d_avns; d_avns -> d_update; d_update -> d_control; d_update -> d_out;
+    d_control -> d_search [constraint=false, label="feedback\n(diversity / restart)", color="#6D7E89", fontcolor="#6D7E89"];
+    d_out -> d_key [arrowhead=none, color="#A6B1BA"];
+    { rank=same; d_avns; d_update; d_control; }
+  }
+
+  // ------------------------------------------------------------------
+  // RIGHT PANEL: DFOX-APNS
+  // ------------------------------------------------------------------
+  subgraph cluster_dfox {
+    label=<<B>DFOX-APNS</B><BR/><FONT POINT-SIZE="11">Discrete FOX Optimization with Adaptive Prey-guided Neighborhood Search</FONT>>;
+    labelloc="t"; labeljust="c"; fontname="Times-Roman"; fontsize=15;
+    color="#9CAAA6"; penwidth=1.0; style="rounded,filled"; fillcolor="#FBFCFB"; margin=14;
+
+    f_enc [width=2.75, fillcolor="#F7F9F8", color="#879A94",
+      label=<<B>1. Problem Encoding</B><BR ALIGN="LEFT"/><FONT POINT-SIZE="9">• Double-layer representation<BR ALIGN="LEFT"/>• Visit-order permutation<BR ALIGN="LEFT"/>• Source-selection vector</FONT>>];
+
+    f_init [width=2.95, fillcolor="#F7F9F8", color="#879A94",
+      label=<<B>2. Fox Population Initialization</B><BR ALIGN="LEFT"/><FONT POINT-SIZE="9">• Initialize fox agents<BR ALIGN="LEFT"/>• Evaluate objective<BR ALIGN="LEFT"/>• Preserve current best prey</FONT>>];
+
+    f_control [width=4.55, fillcolor="#F2F5F4", color="#768B84", penwidth=1.0,
+      label=<<B>3. Adaptive FOX Phase Control</B><BR/><FONT POINT-SIZE="9">relative fitness + search progress + population diversity determine phase probability</FONT>>];
+
+    subgraph cluster_dfox_search {
+      label=""; color="#BDC7C3"; penwidth=0.7; style="rounded,dashed"; margin=8;
+      f_exploit [width=2.45,
+        label=<<I>Exploitation</I><BR/><B>Prey-guided Hunting</B><BR/><FONT POINT-SIZE="8.5">precedence alignment toward best prey<BR/>source pull + coupled order–source move</FONT>>];
+      f_explore [width=2.45,
+        label=<<I>Exploration</I><BR/><B>Peer-guided Long Jump</B><BR/><FONT POINT-SIZE="8.5">peer recombination + block / reverse / insert<BR/>source relocation + weak prey cue</FONT>>];
+      { rank=same; f_exploit; f_explore; }
+      f_exploit -> f_explore [style=invis, weight=20];
+    }
+
+    f_refine [width=4.45, fillcolor="#F7F8F8",
+      label=<<B>4. Adaptive Prey-Neighborhood Search</B><BR/><FONT POINT-SIZE="9">refine competitive candidates with joint / insert / source / reverse-or-swap neighborhoods</FONT>>];
+
+    f_survive [width=2.85, fillcolor="#F7F9F8",
+      label=<<B>5. Survival &amp; Elite Preservation</B><BR ALIGN="LEFT"/><FONT POINT-SIZE="8.5">• greedy survival with controlled diversity<BR ALIGN="LEFT"/>• preserve global-best prey</FONT>>];
+
+    f_stag [width=3.05, fillcolor="#F1F5F3", color="#82958D",
+      label=<<B>6. Stagnation-triggered FOX Long Jump</B><BR ALIGN="LEFT"/><FONT POINT-SIZE="8.5">• detect stagnation / low diversity<BR ALIGN="LEFT"/>• relocate weak foxes via block + reverse + source moves<BR ALIGN="LEFT"/>• retain a weak prey-alignment cue</FONT>>];
+
+    f_out [width=3.30, fillcolor="#F2F5F4", color="#768B84",
+      label=<<B>7. Output</B><BR/><FONT POINT-SIZE="9">Best procurement-routing solution</FONT>>];
+
+    f_key [shape=box, width=6.90, fillcolor="#F7F8F8", color="#A7B2AE",
+      label=<<B>Key mechanisms:</B> <FONT POINT-SIZE="9">adaptive FOX phase balance · prey-guided alignment · multi-neighborhood search · stagnation long jump</FONT>>];
+
+    { rank=same; f_enc; f_init; }
+    f_enc -> f_init;
+    f_init -> f_control;
+    f_control -> f_exploit; f_control -> f_explore;
+    f_exploit -> f_refine; f_explore -> f_refine;
+    f_refine -> f_survive; f_survive -> f_stag; f_survive -> f_out;
+    f_stag -> f_control [constraint=false, label="feedback\n(stagnation / diversity)", color="#6F817B", fontcolor="#6F817B"];
+    f_out -> f_key [arrowhead=none, color="#A7B2AE"];
+    { rank=same; f_survive; f_stag; }
+  }
+
+  // Cross-panel alignment helpers
+  { rank=same; d_enc; d_init; f_enc; f_init; }
+  { rank=same; d_search; f_control; }
+  { rank=same; d_moves; f_refine; }
+  { rank=same; d_avns; d_update; d_control; f_survive; f_stag; }
+  { rank=same; d_out; f_out; }
+  { rank=same; d_key; f_key; }
+  d_init -> f_enc [style=invis, weight=50];
+  d_key -> f_key [style=invis, weight=50];
+}

@@ -1,0 +1,11 @@
+map,family,nodes,demands,candidate_links,unit_cost,exact_json,gui_csv
+clustered_01,clustered,128,16,128,0.25,JSON/clustered_01.json,CSV/clustered_01.csv
+clustered_02,clustered,128,16,128,0.25,JSON/clustered_02.json,CSV/clustered_02.csv
+deceptive_groups_01,deceptive_groups,96,16,96,0.3,JSON/deceptive_groups_01.json,CSV/deceptive_groups_01.csv
+deceptive_groups_02,deceptive_groups,96,16,96,0.3,JSON/deceptive_groups_02.json,CSV/deceptive_groups_02.csv
+price_distance_conflict_01,price_distance_conflict,96,16,96,0.25,JSON/price_distance_conflict_01.json,CSV/price_distance_conflict_01.csv
+price_distance_conflict_02,price_distance_conflict,96,16,96,0.25,JSON/price_distance_conflict_02.json,CSV/price_distance_conflict_02.csv
+shared_hubs_01,shared_hubs,51,16,96,0.25,JSON/shared_hubs_01.json,CSV/shared_hubs_01.csv
+shared_hubs_02,shared_hubs,51,16,96,0.25,JSON/shared_hubs_02.json,CSV/shared_hubs_02.csv
+uniform_01,uniform,96,16,142,0.25,JSON/uniform_01.json,CSV/uniform_01.csv
+uniform_02,uniform,96,16,143,0.25,JSON/uniform_02.json,CSV/uniform_02.csv

@@ -1,0 +1,29 @@
+digraph DFOX_APNS {
+  graph [rankdir=TB, splines=ortho, nodesep=0.30, ranksep=0.40, pad=0.15, bgcolor="white",
+         fontname="Times-Roman", fontsize=18, labelloc="t",
+         label="DFOX-APNS\nDiscrete FOX Optimization with Adaptive Prey-guided Neighborhood Search"];
+  node [shape=box, style="rounded,filled", fillcolor="#FCFCFC", color="#6D7D77", penwidth=0.9,
+        fontname="Times-Roman", fontsize=10, margin="0.10,0.06"];
+  edge [color="#3D4650", penwidth=0.9, arrowsize=0.65, fontname="Times-Italic", fontsize=8.5];
+
+  enc [label=<<B>1. Problem Encoding</B><BR ALIGN="LEFT"/><FONT POINT-SIZE="9">• Visit-order permutation<BR ALIGN="LEFT"/>• Source-selection vector</FONT>>, fillcolor="#F7F9F8"];
+  init [label=<<B>2. Fox Population Initialization</B><BR ALIGN="LEFT"/><FONT POINT-SIZE="9">• Initialize fox agents<BR ALIGN="LEFT"/>• Evaluate objective<BR ALIGN="LEFT"/>• Preserve current best prey</FONT>>, fillcolor="#F7F9F8"];
+  control [label=<<B>3. Adaptive FOX Phase Control</B><BR/><FONT POINT-SIZE="9">relative fitness + search progress + population diversity determine phase probability</FONT>>, fillcolor="#F2F5F4"];
+  exploit [label=<<I>Exploitation</I><BR/><B>Prey-guided Hunting</B><BR/><FONT POINT-SIZE="8.5">precedence alignment toward best prey<BR/>source pull + coupled order–source move</FONT>>];
+  explore [label=<<I>Exploration</I><BR/><B>Peer-guided Long Jump</B><BR/><FONT POINT-SIZE="8.5">peer recombination + block / reverse / insert<BR/>source relocation + weak prey cue</FONT>>];
+  refine [label=<<B>4. Adaptive Prey-Neighborhood Search</B><BR/><FONT POINT-SIZE="9">joint / insert / source / reverse-or-swap refinement of competitive candidates</FONT>>];
+  survive [label=<<B>5. Survival &amp; Elite Preservation</B><BR/><FONT POINT-SIZE="9">greedy survival with controlled diversity + global-best prey preservation</FONT>>];
+  stag [label=<<B>6. Stagnation-triggered FOX Long Jump</B><BR ALIGN="LEFT"/><FONT POINT-SIZE="9">• detect stagnation / low diversity<BR ALIGN="LEFT"/>• relocate weak foxes via block + reverse + source moves<BR ALIGN="LEFT"/>• retain a weak prey-alignment cue</FONT>>, fillcolor="#F1F5F3"];
+  out [label=<<B>7. Output</B><BR/><FONT POINT-SIZE="9">Best procurement-routing solution</FONT>>, fillcolor="#F2F5F4"];
+  key [label=<<B>Key mechanisms:</B> <FONT POINT-SIZE="9">adaptive FOX phase balance · prey-guided alignment · multi-neighborhood search · stagnation long jump</FONT>>, fillcolor="#F7F8F8"];
+
+  {rank=same; enc; init;}
+  {rank=same; exploit; explore;}
+  {rank=same; survive; stag;}
+  enc -> init; init -> control;
+  control -> exploit; control -> explore;
+  exploit -> refine; explore -> refine;
+  refine -> survive; survive -> stag; survive -> out;
+  stag -> control [constraint=false, xlabel="feedback: stagnation / diversity"];
+  out -> key [arrowhead=none, color="#A7B2AE"];
+}

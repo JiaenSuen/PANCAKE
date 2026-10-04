@@ -1,0 +1,31 @@
+digraph DWOA_AVNS {
+  graph [rankdir=TB, splines=ortho, nodesep=0.28, ranksep=0.38, pad=0.15, bgcolor="white",
+         fontname="Times-Roman", fontsize=18, labelloc="t",
+         label="DWOA-AVNS\nDiscrete Whale Optimization with Adaptive Variable-Neighborhood Search"];
+  node [shape=box, style="rounded,filled", fillcolor="#FCFCFC", color="#667481", penwidth=0.9,
+        fontname="Times-Roman", fontsize=10, margin="0.10,0.06"];
+  edge [color="#3D4650", penwidth=0.9, arrowsize=0.65, fontname="Times-Italic", fontsize=8.5];
+
+  enc [label=<<B>1. Problem Encoding</B><BR ALIGN="LEFT"/><FONT POINT-SIZE="9">• Visit-order permutation<BR ALIGN="LEFT"/>• Source-selection vector</FONT>>, fillcolor="#F6F8FA"];
+  init [label=<<B>2. Population Initialization</B><BR ALIGN="LEFT"/><FONT POINT-SIZE="9">• Initialize whales<BR ALIGN="LEFT"/>• Evaluate objective<BR ALIGN="LEFT"/>• Preserve global best</FONT>>, fillcolor="#F6F8FA"];
+  branch [label=<<B>3. WOA-inspired Search Step</B><BR/><FONT POINT-SIZE="9">progress-controlled exploration–exploitation</FONT>>, fillcolor="#F1F4F6"];
+  exploit [label=<<I>Exploitation</I><BR/><B>Encircling Analogue</B><BR/><FONT POINT-SIZE="8.5">elite recombination + leader alignment</FONT>>];
+  explore [label=<<I>Exploration</I><BR/><B>Peer-guided Exploration</B><BR/><FONT POINT-SIZE="8.5">random-whale recombination + block relocation</FONT>>];
+  spiral [label=<<I>Intensification</I><BR/><B>Spiral-like Refinement</B><BR/><FONT POINT-SIZE="8.5">insertion / reversal</FONT>>];
+  moves [label=<<B>4. Coupled Discrete Moves</B><BR/><FONT POINT-SIZE="9">source mutation + joint order–source perturbation</FONT>>];
+  avns [label=<<B>5. Competitive AVNS</B><BR/><FONT POINT-SIZE="9">swap / insert / reverse / source / joint neighborhoods</FONT>>];
+  update [label=<<B>6. Population Update</B><BR/><FONT POINT-SIZE="9">greedy replacement + global-best update</FONT>>];
+  control [label=<<B>7. Stagnation &amp; Diversity Control</B><BR/><FONT POINT-SIZE="9">elite VNS + partial restart under stagnation / low diversity</FONT>>, fillcolor="#F1F5F3"];
+  out [label=<<B>8. Output</B><BR/><FONT POINT-SIZE="9">Best procurement-routing solution</FONT>>, fillcolor="#F1F4F6"];
+  key [label=<<B>Key mechanisms:</B> <FONT POINT-SIZE="9">discrete recombination · coupled order–source moves · adaptive VNS · elite restart</FONT>>, fillcolor="#F7F8F9"];
+
+  {rank=same; enc; init;}
+  {rank=same; exploit; explore; spiral;}
+  {rank=same; avns; update; control;}
+  enc -> init; init -> branch;
+  branch -> exploit; branch -> explore; branch -> spiral;
+  exploit -> moves; explore -> moves; spiral -> moves;
+  moves -> avns; avns -> update; update -> control; update -> out;
+  control -> branch [constraint=false, xlabel="feedback: diversity / restart"];
+  out -> key [arrowhead=none, color="#A6B1BA"];
+}

@@ -1,0 +1,5 @@
+# PANCAKE — 離散式後設啟發最佳化研究
+
+PANCAKE 起源於我對離散組合最佳化與 swarm intelligence 的興趣。我將採購成本、移動距離與供應點選擇建模為 visit-order permutation 與 source-selection 的耦合離散問題，並思考連續型 metaheuristic 進入組合空間後，如何保留 exploration–exploitation 的搜尋語意。閱讀 WOA、FOX optimizer 與 adaptive FOX 研究後，我設計 **DWOA-AVNS** 與 **DFOX-APNS**。前者以 coupled order–source moves、adaptive VNS 與 stagnation/diversity control 強化離散 WOA；後者將 FOX 的 prey-guided hunting 與 jump 轉化為 prey-guided alignment、adaptive neighborhood search 與 stagnation-triggered long jump。我的核心想法是以具問題語意的 neighborhood 重新定義離散搜尋，使路徑順序與供應點能協同最佳化。
+
+我建立 **Uniform、Clustered、Price–Distance Conflict、Shared-Hub 與 Deceptive** 五類 synthetic landscapes，在相同 **1,200 objective-evaluation budget** 下比較 **10 種 metaheuristics，共完成 300 次實驗**，並以 RPD、Success@5%、convergence efficiency、mean rank 與 exact gap 分析品質、穩定性與搜尋效率。DWOA-AVNS 相較原始 DWOA 將 median RPD 降低 **61.9%**；DFOX-APNS 相較 DFOX-Base 降低 **83.2%**，達 **6.69% median RPD、1.72× GA-relative convergence efficiency 與 1.47% exact gap**。不同 landscape 的優勢方法亦不相同，使我進一步理解 metaheuristic 改進需要同時分析 representation、neighborhood semantics 與 adaptive search control，透過 search behavior 與 failure landscape 找出失效原因，再以可驗證的 operator redesign 完成方法改進。
