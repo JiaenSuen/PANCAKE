@@ -1,0 +1,9 @@
+algorithm,evals_to_median_rpd_le_30,evals_to_median_rpd_le_20,evals_to_median_rpd_le_15,evals_to_median_rpd_le_10,evals_to_median_rpd_le_5
+D-BKA,600,840,1020.0,,
+D-CPO,420,660,780.0,1020.0,
+D-HO,660,960,,,
+DFOX-APNS,480,660,840.0,,
+DWOA-AVNS,720,1020,,,
+GA+Tabu,840,1140,,,
+ILS-PA,180,240,300.0,540.0,
+VNS-PA,120,240,420.0,900.0,

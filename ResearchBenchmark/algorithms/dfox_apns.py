@@ -62,7 +62,7 @@ def _fox_explore(p,cur,best,pop,rng,progress,diversity):
     return child
 
 
-def run_dfox_apns(p, seed:int, budget:int, npop:int=12) -> RR:
+def run_dfox_apns(p, seed:int, budget:int, npop:int=12, return_best:bool=False):
     rng=random.Random(seed); ev=0; trace=[]; pop=[]
     for _ in range(min(npop,budget)):
         s=random_sol(p,rng); evaluate(p,s); ev+=1; pop.append(s)
@@ -126,6 +126,7 @@ def run_dfox_apns(p, seed:int, budget:int, npop:int=12) -> RR:
                 pop[wi]=z
                 if z.score<best.score:
                     best=z.clone(); trace.append((ev,best.score)); stagn=0
-    return RR('DFOX-APNS',p.name,p.family,seed,best.score,ev,trace)
+    rr=RR('DFOX-APNS',p.name,p.family,seed,best.score,ev,trace)
+    return (rr,best.clone()) if return_best else rr
 
 optimize=run_dfox_apns

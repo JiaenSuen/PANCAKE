@@ -34,7 +34,16 @@ namespace PANCAKE_GUI_01
             "Discrete Particle Swarm Optimization (DPSO)",
             "DWOA-AVNS",
             "DFOX-Base",
-            "DFOX-APNS"
+            "DFOX-APNS",
+            "DFOX-A0 (Generic Ablation)",
+            "DFOX-A1 (Problem-Aware Ablation)",
+            "DFOX-A2 (Adaptive Ablation)",
+            "DFOX-A3 (Full Ablation)",
+            "ILS (Problem-Aware)",
+            "VNS (Problem-Aware)",
+            "D-CPO (Research Transfer)",
+            "D-BKA (Research Transfer)",
+            "D-HO (Research Transfer)"
         };
 
         public static Recommend_Aquire_Commodities_Path Run(
@@ -72,6 +81,24 @@ namespace PANCAKE_GUI_01
                     map, demands, foxCount: 16, maxIter: 150, seed: 77),
                 "DFOX-APNS" => DFOX_APNS.Optimize(
                     map, demands, foxCount: 12, maxIter: 180, seed: 77),
+                "DFOX-A0 (Generic Ablation)" => DFOX_Ablation.Optimize(
+                    map, demands, level: 0, populationSize: 12, maxIter: 120, seed: 177),
+                "DFOX-A1 (Problem-Aware Ablation)" => DFOX_Ablation.Optimize(
+                    map, demands, level: 1, populationSize: 12, maxIter: 120, seed: 177),
+                "DFOX-A2 (Adaptive Ablation)" => DFOX_Ablation.Optimize(
+                    map, demands, level: 2, populationSize: 12, maxIter: 120, seed: 177),
+                "DFOX-A3 (Full Ablation)" => DFOX_Ablation.Optimize(
+                    map, demands, level: 3, populationSize: 12, maxIter: 120, seed: 177),
+                "ILS (Problem-Aware)" => ProblemAwareLocalSearch.ILS(
+                    map, demands, maxIter: 180, seed: 77),
+                "VNS (Problem-Aware)" => ProblemAwareLocalSearch.VNS(
+                    map, demands, maxIter: 220, seed: 77),
+                "D-CPO (Research Transfer)" => EmergingDiscreteMetaheuristics.DCPO(
+                    map, demands, populationSize: 16, maxIter: 110, seed: 77),
+                "D-BKA (Research Transfer)" => EmergingDiscreteMetaheuristics.DBKA(
+                    map, demands, populationSize: 16, maxIter: 120, seed: 77),
+                "D-HO (Research Transfer)" => EmergingDiscreteMetaheuristics.DHO(
+                    map, demands, populationSize: 16, maxIter: 110, seed: 77),
                 _ => throw new ArgumentException($"Unknown algorithm: {algorithm}", nameof(algorithm))
             };
         }

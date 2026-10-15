@@ -1,0 +1,13 @@
+{
+  "paired_cases": 20,
+  "algorithms": [
+    "D-BKA",
+    "DFOX-APNS",
+    "DWOA-AVNS",
+    "GA+Tabu",
+    "ILS-PA",
+    "VNS-PA"
+  ],
+  "friedman_stat": 86.88571428571424,
+  "friedman_p": 3.027997217705126e-17
+}

@@ -1,0 +1,4 @@
+search_family,pairs,market_tour_win_rate,median_objective_reduction_pct,mean_objective_reduction_pct,median_commodity_repeated_market_visits,median_market_tour_repeated_market_visits,wilcoxon_one_sided_p
+ILS,20,1.0,47.56244426504142,45.2549425779031,48.5,0.0,9.5367431640625e-07
+VNS,20,1.0,51.065436140054025,53.24972008341225,45.0,0.0,9.5367431640625e-07
+DFOX,20,1.0,67.85044106822869,66.34713670892138,45.0,0.0,9.5367431640625e-07

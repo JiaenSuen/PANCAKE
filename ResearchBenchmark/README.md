@@ -13,3 +13,16 @@ This folder contains the canonical Python benchmark used for the reported PANCAK
 - `export_report.py` — rebuilds the compact CSV tables and paper-style Table 1 PNG.
 
 Run `python fox_parameter_screen.py`, then `python meta_study.py`, then `python export_report.py`.
+
+
+## Research-deepening extensions
+
+The legacy benchmark above remains the canonical source for the original Table 1/2. New research modules are additive:
+
+- `algorithms/ils_vns.py` — problem-aware ILS/VNS strong baselines.
+- `algorithms/dfox_ablation.py` — controlled A0/A1/A2/A3 component ablation + operator telemetry.
+- `algorithms/emerging.py` — mechanism-preserving discrete CPO/BKA/HO transfers.
+- `algorithms/core.py` — optional distance-matrix/depot-return support for TPP-style studies; legacy behavior is unchanged when those fields are absent.
+- `../Research/experiments/deepening_study.py` — expanded paired benchmark and statistics.
+
+See `../Research/README.md` for the current research questions and pilot findings.

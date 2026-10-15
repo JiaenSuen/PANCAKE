@@ -1,0 +1,4 @@
+algorithm,median_RPD_AUC,coverage_RPD_le_30_pct,median_FE_to_RPD_le_30_among_hits,coverage_RPD_le_20_pct,median_FE_to_RPD_le_20_among_hits,coverage_RPD_le_15_pct,median_FE_to_RPD_le_15_among_hits,coverage_RPD_le_10_pct,median_FE_to_RPD_le_10_among_hits,coverage_RPD_le_5_pct,median_FE_to_RPD_le_5_among_hits
+TPP-ILS,5.852388126633363,98.2,60.0,96.7,60.0,94.69999999999999,120.0,85.8,240.0,65.4,240.0
+TPP-VNS,9.604092071831095,98.2,60.0,94.3,60.0,87.3,60.0,68.7,240.0,43.3,360.0
+TPP-DFOX,12.388915456107837,97.3,60.0,90.60000000000001,60.0,78.60000000000001,240.0,57.099999999999994,360.0,32.5,480.0

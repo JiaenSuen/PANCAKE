@@ -1,0 +1,13 @@
+{
+  "instances": 100,
+  "runs": 3000,
+  "seeds": 10,
+  "budget_FE": 1200,
+  "friedman_statistic": 156.32105263157908,
+  "friedman_p": 1.1358336173911622e-34,
+  "reference_registry_counts": {
+    "legacy_closed_candidate": 88,
+    "literature_bks_open": 11,
+    "open_reference_unverified": 1
+  }
+}

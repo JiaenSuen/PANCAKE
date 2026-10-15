@@ -1,0 +1,7 @@
+method,year,native_domain,mechanism_view,implementation_status,current_evidence_or_use
+CPO,2024,continuous global optimization,"four search modes; cyclic population reduction",implemented discrete transfer,"D-CPO median RPD 8.30%; statistically tied with VNS-PA in current PANCAKE study"
+BKA,2024,continuous global optimization,"leader guidance; Cauchy mutation / migration",implemented discrete transfer,"D-BKA median RPD 12.16%; moderate transfer"
+HO,2024,continuous global optimization,"three-phase positioning / defense / escape",implemented discrete transfer,"D-HO median RPD 18.77%; extra phase complexity did not translate into strong discrete performance"
+MGO,2022,continuous global optimization,"four parallel behavior modes; best-guided social hierarchy; stochastic exploration/exploitation schedule",literature-context,"Mountain Gazelle Optimizer; optional only if a distinct multi-mode/diversity hypothesis is tested"
+IVYA,2024,continuous global optimization,"neighbor-guided growth; spreading / climbing; elite-centered refinement",literature-context,"candidate mechanism family for later transfer; useful comparison to memory / neighborhood guidance"
+AOS,2024-2025,meta-level search control,"online/offline operator credit; adaptive operator selection",research framework,"provides the principled umbrella for APNS and future hyper-heuristic extension"

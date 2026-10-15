@@ -52,6 +52,30 @@ namespace PANCAKE_GUI_01
                 ValidateSolution(dfox, researchDemands.Count, "DFOX-APNS");
                 log.Add($"PASS DFOX-APNS smoke run: cost={dfox.Cost:F2}");
 
+                var ablation = DFOX_Ablation.Optimize(research, researchDemands, level: 2, populationSize: 6, maxIter: 6, seed: 7);
+                ValidateSolution(ablation, researchDemands.Count, "DFOX-A2");
+                log.Add($"PASS DFOX-A2 ablation smoke run: cost={ablation.Cost:F2}");
+
+                var ils = ProblemAwareLocalSearch.ILS(research, researchDemands, maxIter: 8, seed: 7);
+                ValidateSolution(ils, researchDemands.Count, "ILS-PA");
+                log.Add($"PASS ILS-PA smoke run: cost={ils.Cost:F2}");
+
+                var vns = ProblemAwareLocalSearch.VNS(research, researchDemands, maxIter: 8, seed: 7);
+                ValidateSolution(vns, researchDemands.Count, "VNS-PA");
+                log.Add($"PASS VNS-PA smoke run: cost={vns.Cost:F2}");
+
+                var dcpo = EmergingDiscreteMetaheuristics.DCPO(research, researchDemands, populationSize: 6, maxIter: 6, seed: 7);
+                ValidateSolution(dcpo, researchDemands.Count, "D-CPO");
+                log.Add($"PASS D-CPO smoke run: cost={dcpo.Cost:F2}");
+
+                var dbka = EmergingDiscreteMetaheuristics.DBKA(research, researchDemands, populationSize: 6, maxIter: 6, seed: 7);
+                ValidateSolution(dbka, researchDemands.Count, "D-BKA");
+                log.Add($"PASS D-BKA smoke run: cost={dbka.Cost:F2}");
+
+                var dho = EmergingDiscreteMetaheuristics.DHO(research, researchDemands, populationSize: 6, maxIter: 6, seed: 7);
+                ValidateSolution(dho, researchDemands.Count, "D-HO");
+                log.Add($"PASS D-HO smoke run: cost={dho.Cost:F2}");
+
                 log.Add("SELF-TEST PASSED");
                 File.WriteAllLines(logPath, log);
                 return 0;

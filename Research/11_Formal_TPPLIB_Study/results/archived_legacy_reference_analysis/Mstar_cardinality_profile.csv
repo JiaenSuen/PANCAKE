@@ -1,0 +1,10 @@
+algorithm,scale_tier,median_signed_error,mean_signed_error,median_abs_error,mean_abs_error,exact_Mstar_rate
+TPP-DFOX,large,-5.0,-5.07,5.0,5.07,0.5
+TPP-DFOX,medium,-6.0,-6.76,6.0,6.76,0.0
+TPP-DFOX,small,-4.0,-4.4625,4.0,4.4675,1.0
+TPP-ILS,large,-5.0,-5.14,5.0,5.14,1.0
+TPP-ILS,medium,-6.0,-6.6625,6.0,6.6625,0.0
+TPP-ILS,small,-4.0,-4.0075,4.0,4.0125,2.5
+TPP-VNS,large,-5.0,-5.71,5.0,5.71,0.0
+TPP-VNS,medium,-7.0,-7.05,7.0,7.05,0.0
+TPP-VNS,small,-4.0,-4.7025,4.0,4.7025,0.5

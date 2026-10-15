@@ -141,7 +141,7 @@ namespace PANCAKE_GUI_01
             // MapSelector
             // 
             MapSelector.FormattingEnabled = true;
-            MapSelector.Items.AddRange(new object[] { "map", "map2", "map3", "map4", "map5", "map6", "map7", "map8", "map9", "research_uniform_01", "research_uniform_02", "research_clustered_01", "research_clustered_02", "research_price_distance_conflict_01", "research_price_distance_conflict_02", "research_shared_hubs_01", "research_shared_hubs_02", "research_deceptive_groups_01", "research_deceptive_groups_02" });
+            MapSelector.Items.AddRange(new object[] { "map", "map2", "map3", "map4", "map5", "map6", "map7", "map8", "map9", "research_uniform_01", "research_uniform_02", "research_clustered_01", "research_clustered_02", "research_price_distance_conflict_01", "research_price_distance_conflict_02", "research_shared_hubs_01", "research_shared_hubs_02", "research_deceptive_groups_01", "research_deceptive_groups_02", "research_tpp_eeuclideo_style_50_50_01", "research_tpp_eeuclideo_style_50_100_01" });
             MapSelector.Location = new Point(1191, 555);
             MapSelector.Name = "MapSelector";
             MapSelector.Size = new Size(200, 27);

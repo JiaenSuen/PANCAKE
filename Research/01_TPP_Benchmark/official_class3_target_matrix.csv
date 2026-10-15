@@ -1,0 +1,21 @@
+instance,markets,products,sample,markets_in_opt,reference_value,status,source,planned_seeds,planned_fe_budget,planned_methods,execution_status
+EEuclideo.50.50.1,50,50,1,9,1856.0,OPT,TPPLIB official Class 3 table,10,5000,M-ILS;M-VNS;M-DFOX;C-ILS;C-VNS;C-DFOX,waiting_for_genuine_tpp_file
+EEuclideo.50.50.2,50,50,2,9,1070.0,OPT,TPPLIB official Class 3 table,10,5000,M-ILS;M-VNS;M-DFOX;C-ILS;C-VNS;C-DFOX,waiting_for_genuine_tpp_file
+EEuclideo.50.50.3,50,50,3,10,1553.0,OPT,TPPLIB official Class 3 table,10,5000,M-ILS;M-VNS;M-DFOX;C-ILS;C-VNS;C-DFOX,waiting_for_genuine_tpp_file
+EEuclideo.50.50.4,50,50,4,7,1394.0,OPT,TPPLIB official Class 3 table,10,5000,M-ILS;M-VNS;M-DFOX;C-ILS;C-VNS;C-DFOX,waiting_for_genuine_tpp_file
+EEuclideo.50.50.5,50,50,5,3,1536.0,OPT,TPPLIB official Class 3 table,10,5000,M-ILS;M-VNS;M-DFOX;C-ILS;C-VNS;C-DFOX,waiting_for_genuine_tpp_file
+EEuclideo.50.100.1,50,100,1,13,2397.0,OPT,TPPLIB official Class 3 table,10,5000,M-ILS;M-VNS;M-DFOX;C-ILS;C-VNS;C-DFOX,waiting_for_genuine_tpp_file
+EEuclideo.50.100.2,50,100,2,12,2138.0,OPT,TPPLIB official Class 3 table,10,5000,M-ILS;M-VNS;M-DFOX;C-ILS;C-VNS;C-DFOX,waiting_for_genuine_tpp_file
+EEuclideo.50.100.3,50,100,3,11,1852.0,OPT,TPPLIB official Class 3 table,10,5000,M-ILS;M-VNS;M-DFOX;C-ILS;C-VNS;C-DFOX,waiting_for_genuine_tpp_file
+EEuclideo.50.100.4,50,100,4,16,3093.0,OPT,TPPLIB official Class 3 table,10,5000,M-ILS;M-VNS;M-DFOX;C-ILS;C-VNS;C-DFOX,waiting_for_genuine_tpp_file
+EEuclideo.50.100.5,50,100,5,13,2603.0,OPT,TPPLIB official Class 3 table,10,5000,M-ILS;M-VNS;M-DFOX;C-ILS;C-VNS;C-DFOX,waiting_for_genuine_tpp_file
+EEuclideo.100.50.1,100,50,1,10,1468.0,OPT,TPPLIB official Class 3 table,10,5000,M-ILS;M-VNS;M-DFOX;C-ILS;C-VNS;C-DFOX,waiting_for_genuine_tpp_file
+EEuclideo.100.50.2,100,50,2,8,971.0,OPT,TPPLIB official Class 3 table,10,5000,M-ILS;M-VNS;M-DFOX;C-ILS;C-VNS;C-DFOX,waiting_for_genuine_tpp_file
+EEuclideo.100.50.3,100,50,3,11,1623.0,OPT,TPPLIB official Class 3 table,10,5000,M-ILS;M-VNS;M-DFOX;C-ILS;C-VNS;C-DFOX,waiting_for_genuine_tpp_file
+EEuclideo.100.50.4,100,50,4,11,1718.0,OPT,TPPLIB official Class 3 table,10,5000,M-ILS;M-VNS;M-DFOX;C-ILS;C-VNS;C-DFOX,waiting_for_genuine_tpp_file
+EEuclideo.100.50.5,100,50,5,12,2494.0,OPT,TPPLIB official Class 3 table,10,5000,M-ILS;M-VNS;M-DFOX;C-ILS;C-VNS;C-DFOX,waiting_for_genuine_tpp_file
+EEuclideo.100.100.1,100,100,1,17,2121.0,OPT,TPPLIB official Class 3 table,10,5000,M-ILS;M-VNS;M-DFOX;C-ILS;C-VNS;C-DFOX,waiting_for_genuine_tpp_file
+EEuclideo.100.100.2,100,100,2,14,1906.0,OPT,TPPLIB official Class 3 table,10,5000,M-ILS;M-VNS;M-DFOX;C-ILS;C-VNS;C-DFOX,waiting_for_genuine_tpp_file
+EEuclideo.100.100.3,100,100,3,14,1822.0,OPT,TPPLIB official Class 3 table,10,5000,M-ILS;M-VNS;M-DFOX;C-ILS;C-VNS;C-DFOX,waiting_for_genuine_tpp_file
+EEuclideo.100.100.4,100,100,4,10,1649.0,OPT,TPPLIB official Class 3 table,10,5000,M-ILS;M-VNS;M-DFOX;C-ILS;C-VNS;C-DFOX,waiting_for_genuine_tpp_file
+EEuclideo.100.100.5,100,100,5,16,2925.0,OPT,TPPLIB official Class 3 table,10,5000,M-ILS;M-VNS;M-DFOX;C-ILS;C-VNS;C-DFOX,waiting_for_genuine_tpp_file

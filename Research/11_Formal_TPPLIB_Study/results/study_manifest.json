@@ -1,0 +1,58 @@
+{
+  "study": "PANCAKE Formal TPPLIB Class-3 Study",
+  "instances": 100,
+  "seeds": 10,
+  "budget": 1200,
+  "methods": [
+    "ILS",
+    "VNS",
+    "DFOX"
+  ],
+  "paired_seeds": [
+    377,
+    10384,
+    20391,
+    30398,
+    40405,
+    50412,
+    60419,
+    70426,
+    80433,
+    90440
+  ],
+  "checkpoints": [
+    60,
+    120,
+    240,
+    360,
+    480,
+    600,
+    720,
+    840,
+    960,
+    1080,
+    1200
+  ],
+  "workers": 5,
+  "reference_semantics": "Primary: pooled observed RPD across canonical methods/seeds. External: 11 literature BKS open instances. Secondary: 88 legacy solver-completed closed-reference candidates; 1 unresolved open row.",
+  "scale_tiers": {
+    "small": "V<=100",
+    "medium": "150<=V<=200",
+    "large": "V>=250"
+  },
+  "density_definitions": {
+    "offers_per_product": "number of feasible market offers / products",
+    "offers_per_market": "number of feasible offers / purchasable markets",
+    "normalized_offer_density": "offers / (purchasable_markets * products)",
+    "product_supply_tertiles": [
+      51.64666666666667,
+      95.02
+    ],
+    "market_assortment_tertiles": [
+      48.68273092369478,
+      75.39698492462311
+    ]
+  },
+  "reference_audit": "Research/11_Formal_TPPLIB_Study/REFERENCE_SEMANTICS_AUDIT.md",
+  "canonical_analysis": "Research/11_Formal_TPPLIB_Study/analyze_formal_class3_v2.py"
+}

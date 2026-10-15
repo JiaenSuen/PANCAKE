@@ -1,0 +1,28 @@
+{
+  "status": "research pilot; not a final camera-ready benchmark",
+  "protocol": {
+    "main": {
+      "instances": 10,
+      "seeds": 10,
+      "objective_evaluations": 1200
+    },
+    "ablation": {
+      "instances": 10,
+      "seeds": 10,
+      "objective_evaluations": 1200
+    },
+    "tpp_style_transfer": {
+      "instances": 4,
+      "seeds": 5,
+      "objective_evaluations": 2400,
+      "provenance": "protocol-regenerated EEuclideo-style instances, not official benchmark bytes"
+    }
+  },
+  "files": {
+    "main_summary": "Research/results/main_summary.csv",
+    "ablation_summary": "Research/results/ablation_summary.csv",
+    "tpp_style_summary": "Research/results/tpp_style_summary.csv",
+    "operator_aggregate": "Research/results/operator_aggregate.csv",
+    "family_summary": "Research/results/family_algorithm_median_rpd.csv"
+  }
+}

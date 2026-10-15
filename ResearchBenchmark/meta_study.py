@@ -15,6 +15,9 @@ class Problem:
     coords:List[Tuple[float,float]]
     candidates:List[List[Tuple[int,float]]]
     unit_cost:float=0.25
+    return_to_depot:bool=False
+    distance_matrix:Optional[List[List[float]]]=None
+    depot_index:int=0
 
 @dataclass
 class Sol:
@@ -30,11 +33,19 @@ class RR:
     alg:str; inst:str; family:str; seed:int; score:float; evals:int; trace:List[Tuple[int,float]]
 
 # ---------- common representation / objective ----------
+def edge_distance(p:Problem,a,b):
+    if p.distance_matrix is not None:
+        ia=p.depot_index if a is None else a; ib=p.depot_index if b is None else b
+        return float(p.distance_matrix[ia][ib])
+    ax,ay=(0.0,0.0) if a is None else p.coords[a]; bx,by=(0.0,0.0) if b is None else p.coords[b]
+    return math.hypot(bx-ax,by-ay)
+
 def evaluate(p:Problem,s:Sol):
-    x0=y0=0.0; d=0.0; buy=0.0
+    prev=None;d=0.0;buy=0.0
     for item in s.order:
-        node,price=p.candidates[item][s.src[item]]; x,y=p.coords[node]
-        d+=math.hypot(x-x0,y-y0); buy+=price; x0,y0=x,y
+        node,price=p.candidates[item][s.src[item]]
+        d+=edge_distance(p,prev,node);buy+=price;prev=node
+    if p.return_to_depot and prev is not None:d+=edge_distance(p,prev,None)
     s.dist=d;s.purchase=buy;s.score=buy+p.unit_cost*d
     return s.score
 
@@ -88,12 +99,13 @@ def joint_move(p,s,rng):
     if len(s.order)<2:return
     d=rng.choice(s.order); oldpos=s.order.index(d); s.order.pop(oldpos); newpos=rng.randrange(len(s.order)+1);s.order.insert(newpos,d)
     # evaluate local predecessor/successor proxy for all sources
-    pos=s.order.index(d); prev=(0.0,0.0) if pos==0 else p.coords[p.candidates[s.order[pos-1]][s.src[s.order[pos-1]]][0]]
-    nxt=None if pos==len(s.order)-1 else p.coords[p.candidates[s.order[pos+1]][s.src[s.order[pos+1]]][0]]
+    pos=s.order.index(d); prev=None if pos==0 else p.candidates[s.order[pos-1]][s.src[s.order[pos-1]]][0]
+    if pos==len(s.order)-1:nxt=None if p.return_to_depot else False
+    else:nxt=p.candidates[s.order[pos+1]][s.src[s.order[pos+1]]][0]
     best=(math.inf,s.src[d])
     for si,(node,price) in enumerate(p.candidates[d]):
-        x,y=p.coords[node]; val=price+p.unit_cost*math.hypot(x-prev[0],y-prev[1])
-        if nxt is not None: val+=p.unit_cost*math.hypot(nxt[0]-x,nxt[1]-y)
+        val=price+p.unit_cost*edge_distance(p,prev,node)
+        if nxt is not False: val+=p.unit_cost*edge_distance(p,node,nxt)
         if val<best[0]:best=(val,si)
     s.src[d]=best[1]
 
@@ -219,7 +231,11 @@ def tabu_core(p,rng,budget,initial=None,ev0=0,best0=None,trace=None,neigh=24):
             elif typ==1:
                 i,j=sorted(rng.sample(range(len(s.order)),2));s.order[i:j+1]=reversed(s.order[i:j+1]);mv=('rv',i,j)
             else:
-                d=rng.randrange(len(s.src));old=s.src[d];m=len(p.candidates[d]);z=rng.randrange(m-1);ns=z+(z>=old);s.src[d]=ns;mv=('so',d,ns)
+                eligible=[d for d in range(len(s.src)) if len(p.candidates[d])>1]
+                if not eligible:
+                    i,j=sorted(rng.sample(range(len(s.order)),2));s.order[i],s.order[j]=s.order[j],s.order[i];mv=('sw',i,j)
+                else:
+                    d=rng.choice(eligible);old=s.src[d];m=len(p.candidates[d]);z=rng.randrange(m-1);ns=z+(z>=old);s.src[d]=ns;mv=('so',d,ns)
             evaluate(p,s);ev+=1
             if tabu.get(mv,-1)<=it or s.score<best.score:cands.append((s,mv))
         if not cands:continue
@@ -426,19 +442,21 @@ def exact_score(p:Problem):
     n=len(p.candidates);dp={}
     for d in range(n):
         for si,(node,price) in enumerate(p.candidates[d]):
-            x,y=p.coords[node];dp[(1<<d,d,si)]=price+p.unit_cost*math.hypot(x,y)
+            dp[(1<<d,d,si)]=price+p.unit_cost*edge_distance(p,None,node)
     for size in range(1,n):
         nxt={}
         for (mask,last,si),val in dp.items():
             if mask.bit_count()!=size:continue
-            ln=p.candidates[last][si][0];lx,ly=p.coords[ln]
+            ln=p.candidates[last][si][0]
             for d in range(n):
                 if mask>>d&1:continue
                 nm=mask|1<<d
                 for sj,(node,price) in enumerate(p.candidates[d]):
-                    x,y=p.coords[node];nv=val+price+p.unit_cost*math.hypot(x-lx,y-ly);k=(nm,d,sj)
+                    nv=val+price+p.unit_cost*edge_distance(p,ln,node);k=(nm,d,sj)
                     if nv<nxt.get(k,math.inf):nxt[k]=nv
         dp=nxt
+    if p.return_to_depot:
+        return min(val+p.unit_cost*edge_distance(p,p.candidates[last][si][0],None) for (mask,last,si),val in dp.items())
     return min(dp.values())
 
 def main(seeds=3,instances_per_family=2,n=16,budget=1200):

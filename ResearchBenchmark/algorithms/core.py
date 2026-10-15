@@ -30,16 +30,36 @@ class RR:
     trace: List[Tuple[int, float]]
 
 
+def edge_distance(p, a: int | None, b: int | None) -> float:
+    """Distance helper shared by PANCAKE and TPP-compatible studies.
+
+    ``None`` denotes the depot at coordinate (0, 0).  When ``distance_matrix``
+    is present, node indices address that matrix and the optional ``depot_index``
+    identifies the depot.  The legacy PANCAKE benchmark has neither attribute and
+    therefore keeps its original Euclidean behaviour exactly.
+    """
+    matrix = getattr(p, "distance_matrix", None)
+    if matrix is not None:
+        depot = getattr(p, "depot_index", 0)
+        ia = depot if a is None else a
+        ib = depot if b is None else b
+        return float(matrix[ia][ib])
+    ax, ay = (0.0, 0.0) if a is None else p.coords[a]
+    bx, by = (0.0, 0.0) if b is None else p.coords[b]
+    return math.hypot(bx - ax, by - ay)
+
+
 def evaluate(p, s: Sol) -> float:
-    x0 = y0 = 0.0
+    prev_node = None
     distance = 0.0
     purchase = 0.0
     for item in s.order:
         node, price = p.candidates[item][s.src[item]]
-        x, y = p.coords[node]
-        distance += math.hypot(x - x0, y - y0)
+        distance += edge_distance(p, prev_node, node)
         purchase += price
-        x0, y0 = x, y
+        prev_node = node
+    if getattr(p, "return_to_depot", False) and prev_node is not None:
+        distance += edge_distance(p, prev_node, None)
     s.dist = distance
     s.purchase = purchase
     s.score = purchase + p.unit_cost * distance
@@ -104,26 +124,18 @@ def joint_move(p, s: Sol, rng: random.Random) -> None:
     s.order.insert(new_pos, demand)
 
     pos = s.order.index(demand)
-    if pos == 0:
-        prev = (0.0, 0.0)
-    else:
-        prev_d = s.order[pos - 1]
-        prev_node = p.candidates[prev_d][s.src[prev_d]][0]
-        prev = p.coords[prev_node]
-
+    prev_node = None if pos == 0 else p.candidates[s.order[pos - 1]][s.src[s.order[pos - 1]]][0]
     if pos == len(s.order) - 1:
-        nxt = None
+        next_node = None if getattr(p, "return_to_depot", False) else False
     else:
         next_d = s.order[pos + 1]
         next_node = p.candidates[next_d][s.src[next_d]][0]
-        nxt = p.coords[next_node]
 
     best = (math.inf, s.src[demand])
     for source_idx, (node, price) in enumerate(p.candidates[demand]):
-        x, y = p.coords[node]
-        value = price + p.unit_cost * math.hypot(x - prev[0], y - prev[1])
-        if nxt is not None:
-            value += p.unit_cost * math.hypot(nxt[0] - x, nxt[1] - y)
+        value = price + p.unit_cost * edge_distance(p, prev_node, node)
+        if next_node is not False:
+            value += p.unit_cost * edge_distance(p, node, next_node)
         if value < best[0]:
             best = (value, source_idx)
     s.src[demand] = best[1]

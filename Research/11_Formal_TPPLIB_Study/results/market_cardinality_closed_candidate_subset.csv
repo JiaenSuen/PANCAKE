@@ -1,0 +1,10 @@
+algorithm,scale_tier,instances,median_signed_market_error,median_abs_market_error,mean_abs_market_error,exact_market_count_rate
+TPP-DFOX,large,10,-4.5,4.5,5.0,0.0
+TPP-DFOX,medium,38,-6.0,6.0,6.631578947368421,0.0
+TPP-DFOX,small,40,-4.25,4.25,4.5375,0.0
+TPP-ILS,large,10,-4.75,4.75,5.15,0.0
+TPP-ILS,medium,38,-6.0,6.0,6.644736842105263,0.0
+TPP-ILS,small,40,-4.0,4.0,4.125,0.0
+TPP-VNS,large,10,-5.5,5.5,5.7,0.0
+TPP-VNS,medium,38,-7.0,7.0,6.947368421052632,0.0
+TPP-VNS,small,40,-4.0,4.0,4.775,0.0

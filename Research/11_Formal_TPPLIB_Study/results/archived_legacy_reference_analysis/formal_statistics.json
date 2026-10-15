@@ -1,0 +1,10 @@
+{
+  "friedman_statistic": 156.32105263157908,
+  "friedman_p": 1.1358336173911622e-34,
+  "instances": 100,
+  "methods": [
+    "TPP-DFOX",
+    "TPP-ILS",
+    "TPP-VNS"
+  ]
+}

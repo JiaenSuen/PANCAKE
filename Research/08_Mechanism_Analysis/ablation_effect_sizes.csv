@@ -1,0 +1,4 @@
+from,to,mechanism,median_relative_improvement_pct,paired_win_rate,wilcoxon_one_sided_p,rank_biserial_effect
+DFOX-A0-Generic,DFOX-A1-ProblemAware,problem-aware neighborhood,17.055890430725537,1.0,1.9482799225479546e-18,1.0
+DFOX-A1-ProblemAware,DFOX-A2-Adaptive,adaptive operator control,1.7613179995889867,0.63,0.0009631403867980915,0.3572277227722772
+DFOX-A2-Adaptive,DFOX-A3-Full,restart / long jump,-0.5043047852308329,0.43,0.8908236616957219,-0.14178217821782177

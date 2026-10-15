@@ -1,0 +1,9 @@
+family,representative_methods,mechanism_primitives,discrete_transfer_question,current_pancake_role
+Local-search / trajectory,ILS; VNS; Tabu,intensification; neighborhood change; perturbation; acceptance,How much can problem-aware local moves solve without population dynamics?,Canonical strong baselines
+Evolutionary / recombination,GA; DE,recombination; mutation; selection; population diversity,Which recombination concepts remain meaningful for market-tour and coupled source/order representations?,Established reference family
+Swarm / leader-guided,PSO; WOA; FOX,elite/leader guidance; social attraction; exploration-exploitation schedule,Does continuous position guidance survive as useful discrete set/order alignment?,Historical and mechanism case studies
+Recent multi-mode population,CPO,multi-mode search; active population schedule; exploration/exploitation switching,Can phase switching and population control outperform fixed neighborhood schedules?,Implemented as D-CPO
+Heavy-tail leader-guided,BKA,leader guidance; Cauchy/heavy-tail perturbation; migration,Does heavy-tailed move count improve escape without destroying local structure?,Implemented as D-BKA
+Multi-phase defense/escape,HO,phase switching; social update; disruption; local exploitation,Do additional phases add useful behavior after discrete mapping?,Implemented as D-HO
+Memory / diversity / growth,MGO; IVYA,direction estimation; reproduction/spreading; memory/diversity; neighbor guidance,Which memory/diversity mechanisms remain distinct after removing the metaphor?,Literature-context / future controlled transfer
+Adaptive / hyper-heuristic,AOS; selection hyper-heuristics,online operator credit; state-dependent selection; parameter control,Can the solver learn which low-level operator is appropriate for the current search state?,APNS / broader research direction
