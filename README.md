@@ -1,5 +1,7 @@
 # PANCAKE: Pathfinding for Acquisition of Necessary Commodities using Algorithmic Knowledge Efficiently — Representation, Neighborhood Semantics, and Metaheuristic Mechanism Transfer in the Traveling Purchaser Problem
 
+[Paper Link](https://drive.google.com/file/d/1aV_PgoaL5xvifFyoYsdI4MsTX3KcRYHV/view?usp=drive_link)
+
 **PANCAKE** (*Pathfinding for Acquisition of Necessary Commodities using Algorithmic Knowledge Efficiently*) is retained as the repository and software-project identity. The research manuscript is now treated independently under the working title **“Representation, Neighborhood Semantics, and Metaheuristic Mechanism Transfer in the Traveling Purchaser Problem.”** The project is being progressively de-branded at the scientific layer: paper terminology, benchmark descriptions, figures, and claims use problem- and mechanism-oriented names, while the PANCAKE name is preserved only where it identifies the repository, legacy GUI, or historical implementation lineage. The original PANCAKE formulation contains two coupled decisions: a commodity visit permutation and one selected source for every commodity. Its scalarized objective is
 
 \[
